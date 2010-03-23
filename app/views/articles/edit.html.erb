@@ -1,0 +1,44 @@
+<h1>Editing article</h1>
+
+<% form_for(@article) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id,nil,:style=>"display:none;" %><br />
+    <%= f.hidden_field :id %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :slug %><br />
+    <%= f.text_field :slug %>
+  </p>
+  <p>
+    <%= f.label :category_id %><br />
+   	<%=f.collection_select :category_id,Category.all,:id,:name,{:prompt=>true} %>
+  </p>
+  <p>
+    <%= f.label :attachment %><br />
+    <%= f.text_field :attachment %>
+  </p>
+  <p>
+    <%= f.label :intro %><br />
+    <%= f.text_field :intro %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_field :body %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @article %> |
+<%= link_to 'Back', articles_path %>
