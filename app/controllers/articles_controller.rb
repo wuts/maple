@@ -3,7 +3,9 @@ class ArticlesController < ApplicationController
   # GET /articles.xml
   def index
     @articles = Article.all
-
+    @live_articles=Article.live
+    @draft_articles=Article.draft 
+    @recent_articles=Article.recent
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @articles }

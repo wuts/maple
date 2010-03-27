@@ -3430,3 +3430,302 @@ Rendering articles/edit
   [4;36;1mCategory Load (0.0ms)[0m   [0;1mSELECT * FROM `categories` [0m
   [4;35;1mCategory Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
 Completed in 87ms (View: 61, DB: 7) | 200 OK [http://localhost/articles/2/edit]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mArticle Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mArticle Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+  [4;35;1mArticle Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`status` = 'live') ORDER BY created_at DESC LIMIT 10[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-25 20:10:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;35;1mArticle Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`status` = 'live') ORDER BY created_at DESC LIMIT 10[0m
+Completed in 4322ms (View: 4264, DB: 6) | 200 OK [http://localhost/articles]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#edit (for 127.0.0.1 at 2010-03-25 20:10:29) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"articles"}
+  [4;35;1mArticle Columns (5.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`id` = 1) [0m
+Rendering template within layouts/articles
+Rendering articles/edit
+  [4;35;1mCategory Load (1.0ms)[0m   [0mSELECT * FROM `categories` [0m
+  [4;36;1mCategory Columns (5.0ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 293ms (View: 261, DB: 14) | 200 OK [http://localhost/articles/1/edit]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#update (for 127.0.0.1 at 2010-03-25 20:10:40) [PUT]
+  Parameters: {"article"=>{"slug"=>"", "intro"=>"", "body"=>"", "title"=>"hell", "attachment"=>"", "id"=>"1", "category_id"=>"1", "status"=>"live"}, "commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"Bd4EljZ/nE2t5Fm2yfKAAe2I6DojO6NbSxP5i2YLvVE=", "id"=>"1", "controller"=>"articles"}
+  [4;35;1mArticle Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`id` = 1) [0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mArticle Update (1.0ms)[0m   [0;1mUPDATE `articles` SET `updated_at` = '2010-03-25 12:10:40', `attachment` = '', `slug` = '', `intro` = '', `status` = 'live', `body` = '' WHERE `id` = 1[0m
+  [4;35;1mSQL (82.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/articles/1
+Completed in 120ms (DB: 88) | 302 Found [http://localhost/articles/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#show (for 127.0.0.1 at 2010-03-25 20:10:42) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"articles"}
+  [4;36;1mArticle Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (1.0ms)[0m   [0mSELECT * FROM `articles` WHERE (`articles`.`id` = 1) [0m
+Rendering template within layouts/articles
+Rendering articles/show
+Completed in 45ms (View: 20, DB: 5) | 200 OK [http://localhost/articles/1]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-25 20:10:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;35;1mArticle Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`status` = 'live') ORDER BY created_at DESC LIMIT 10[0m
+Completed in 52ms (View: 28, DB: 7) | 200 OK [http://localhost/articles]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#edit (for 127.0.0.1 at 2010-03-25 20:10:49) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"articles"}
+  [4;35;1mArticle Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`id` = 2) [0m
+Rendering template within layouts/articles
+Rendering articles/edit
+  [4;35;1mCategory Load (0.0ms)[0m   [0mSELECT * FROM `categories` [0m
+  [4;36;1mCategory Columns (5.0ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 77ms (View: 47, DB: 10) | 200 OK [http://localhost/articles/2/edit]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#update (for 127.0.0.1 at 2010-03-25 20:10:56) [PUT]
+  Parameters: {"article"=>{"slug"=>"sf", "intro"=>"fs", "body"=>"sfs", "title"=>"fsdf", "attachment"=>"fs", "id"=>"2", "category_id"=>"2", "status"=>"draft"}, "commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"Bd4EljZ/nE2t5Fm2yfKAAe2I6DojO6NbSxP5i2YLvVE=", "id"=>"2", "controller"=>"articles"}
+  [4;35;1mArticle Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`id` = 2) [0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mArticle Update (0.0ms)[0m   [0;1mUPDATE `articles` SET `updated_at` = '2010-03-25 12:10:56', `status` = 'draft' WHERE `id` = 2[0m
+  [4;35;1mSQL (22.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/articles/2
+Completed in 61ms (DB: 27) | 302 Found [http://localhost/articles/2]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#show (for 127.0.0.1 at 2010-03-25 20:10:57) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"articles"}
+  [4;36;1mArticle Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (0.0ms)[0m   [0mSELECT * FROM `articles` WHERE (`articles`.`id` = 2) [0m
+Rendering template within layouts/articles
+Rendering articles/show
+Completed in 33ms (View: 8, DB: 4) | 200 OK [http://localhost/articles/2]
+  [4;35;1mArticle Load (0.0ms)[0m   [0mSELECT * FROM `articles` WHERE (`articles`.`status` = 'live') ORDER BY created_at DESC LIMIT 10[0m
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`status` = 'draft') ORDER BY created_at DESC LIMIT 10[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-25 20:11:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;35;1mArticle Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`status` = 'live') ORDER BY created_at DESC LIMIT 10[0m
+Completed in 48ms (View: 25, DB: 8) | 200 OK [http://localhost/articles]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#new (for 127.0.0.1 at 2010-03-25 20:11:52) [GET]
+  Parameters: {"action"=>"new", "controller"=>"articles"}
+  [4;35;1mArticle Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+Rendering template within layouts/articles
+Rendering articles/new
+  [4;36;1mCategory Load (1.0ms)[0m   [0;1mSELECT * FROM `categories` [0m
+  [4;35;1mCategory Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Completed in 94ms (View: 67, DB: 9) | 200 OK [http://localhost/articles/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#create (for 127.0.0.1 at 2010-03-25 20:12:17) [POST]
+  Parameters: {"article"=>{"slug"=>"", "intro"=>"", "body"=>"", "title"=>"上\346\265\267", "attachment"=>"", "id"=>"", "category_id"=>"2", "status"=>"live"}, "commit"=>"Create", "action"=>"create", "authenticity_token"=>"Bd4EljZ/nE2t5Fm2yfKAAe2I6DojO6NbSxP5i2YLvVE=", "controller"=>"articles"}
+  [4;36;1mArticle Columns (5.0ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mSQL (1.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mArticle Create (1.0ms)[0m   [0;1mINSERT INTO `articles` (`slug`, `intro`, `created_at`, `title`, `body`, `attachment`, `updated_at`, `category_id`, `status`) VALUES('', '', '2010-03-25 12:12:17', '上海', '', '', '2010-03-25 12:12:17', 2, 'live')[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/articles/3
+Completed in 69ms (DB: 38) | 302 Found [http://localhost/articles]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#show (for 127.0.0.1 at 2010-03-25 20:12:18) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"articles"}
+  [4;36;1mArticle Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (1.0ms)[0m   [0mSELECT * FROM `articles` WHERE (`articles`.`id` = 3) [0m
+Rendering template within layouts/articles
+Rendering articles/show
+Completed in 35ms (View: 9, DB: 6) | 200 OK [http://localhost/articles/3]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-25 20:12:22) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;35;1mArticle Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`status` = 'live') ORDER BY created_at DESC LIMIT 10[0m
+Completed in 142ms (View: 31, DB: 6) | 200 OK [http://localhost/articles]
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mArticle Load (1.0ms)[0m   [0mSELECT * FROM `articles` WHERE (`articles`.`status` = 'live') ORDER BY created_at DESC LIMIT 10[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mMysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':created_at>'2010-03-18 12:31:30')' at line 1: SELECT * FROM `articles` WHERE (:created_at>'2010-03-18 12:31:30') [0m
+  [4;35;1mArticle Load (0.0ms)[0m   [0mMysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':created_at>'2010-03-18 12:32:10')' at line 1: SELECT * FROM `articles` WHERE (:created_at>'2010-03-18 12:32:10') [0m
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mMysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':created_at>'2010-03-18 12:32:14')' at line 1: SELECT * FROM `articles` WHERE (:created_at>'2010-03-18 12:32:14') [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-25 20:33:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (1.0ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;36;1mArticle Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (0.0ms)[0m   [0mMysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':created_at>'2010-03-24 12:33:26')' at line 1: SELECT * FROM `articles` WHERE (:created_at>'2010-03-24 12:33:26') [0m
+
+ActionView::TemplateError (Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':created_at>'2010-03-24 12:33:26')' at line 1: SELECT * FROM `articles` WHERE (:created_at>'2010-03-24 12:33:26') ) on line #33 of app/views/articles/index.html.erb:
+30: </table>
+31: 
+32: <ul>
+33: <% @recent_articles.each do |live_article| %>
+34:  <li><%=h live_article.title %></li>
+35: <% end %>
+36: </ul>
+
+    c:1:in `__send__'
+    c:1:in `with_scope'
+    c:1:in `each'
+    app/views/articles/index.html.erb:33
+    app/controllers/articles_controller.rb:9:in `index'
+
+Rendered rescues/_trace (186.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-25 20:34:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;35;1mArticle Columns (5.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mMysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':created_at<'2010-03-24 12:34:43')' at line 1: SELECT * FROM `articles` WHERE (:created_at<'2010-03-24 12:34:43') [0m
+
+ActionView::TemplateError (Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':created_at<'2010-03-24 12:34:43')' at line 1: SELECT * FROM `articles` WHERE (:created_at<'2010-03-24 12:34:43') ) on line #33 of app/views/articles/index.html.erb:
+30: </table>
+31: 
+32: <ul>
+33: <% @recent_articles.each do |live_article| %>
+34:  <li><%=h live_article.title %></li>
+35: <% end %>
+36: </ul>
+
+    c:1:in `__send__'
+    c:1:in `with_scope'
+    c:1:in `each'
+    app/views/articles/index.html.erb:33
+    app/controllers/articles_controller.rb:9:in `index'
+
+Rendered rescues/_trace (147.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-25 20:35:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (0.0ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;36;1mArticle Columns (6.0ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (1.0ms)[0m   [0mSELECT * FROM `articles` WHERE (created_at<'2010-03-24 12:35:08') [0m
+Completed in 68ms (View: 39, DB: 8) | 200 OK [http://localhost/articles]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-25 20:35:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;35;1mArticle Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` WHERE (created_at>'2010-03-24 12:35:30') [0m
+Completed in 149ms (View: 26, DB: 5) | 200 OK [http://localhost/articles]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-25 20:36:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (1.0ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;36;1mArticle Columns (5.0ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (1.0ms)[0m   [0mSELECT * FROM `articles` WHERE (`articles`.`created_at` = '2010-03-24 12:36:27') [0m
+Completed in 62ms (View: 34, DB: 7) | 200 OK [http://localhost/articles]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-25 20:36:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;35;1mArticle Columns (5.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` WHERE (created_at>'2010-03-24 12:36:51') [0m
+Completed in 61ms (View: 33, DB: 6) | 200 OK [http://localhost/articles]
+  [4;35;1mArticle Load (0.0ms)[0m   [0mMysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':created_at>'2010-03-18 12:36:55')' at line 1: SELECT * FROM `articles` WHERE (:created_at>'2010-03-18 12:36:55') [0m
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mMysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':created_at>'2010-03-18 12:36:59')' at line 1: SELECT * FROM `articles` WHERE (:created_at>'2010-03-18 12:36:59') [0m
+  [4;35;1mArticle Load (0.0ms)[0m   [0mMysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':created_at>'2010-03-18 12:37:17')' at line 1: SELECT * FROM `articles` WHERE (:created_at>'2010-03-18 12:37:17') [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` WHERE ((created_at>'2010-03-24 12:39:43') AND (`articles`.`status` = 'live')) ORDER BY created_at DESC LIMIT 10[0m
+  [4;35;1mArticle Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUsers Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (created_at>'2010-03-18 12:47:52') [0m
+  [4;35;1mUsers Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (created_at>'2010-03-24 12:48:02') [0m
+  [4;36;1mUsers Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (created_at>'2010-03-24 12:48:28') [0m
