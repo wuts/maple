@@ -1,0 +1,22 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+zh_CN:
+  hello: "你好，世界！"
+  submit: "提交"
+  create: "创建"
+  save: "保存"
+  update: "更新"
+  title: "标题"
+  site_name: "网站名称"
+  slogan: "广告语"
+  English: "English"
+  simplified_Chinese: "简体中文"
+
+  activerecord:
+  models:
+    article: "文章"
+    user: "用户"
+  attributes:
+    article:
+      title: "标题"
