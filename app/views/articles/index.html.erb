@@ -29,6 +29,11 @@
 <% end %>
 </table>
 
+<ul>
+<% @recent_articles.each do |live_article| %>
+ <li><%=h live_article.title %></li>
+<% end %>
+</ul>
 <br />
 
 <%= link_to 'New article', new_article_path %>
