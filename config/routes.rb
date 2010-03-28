@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :photos
+
+  map.resources :galleries
+
+  map.resources :comments
+
   map.resources :categories
 
   map.resources :articles
