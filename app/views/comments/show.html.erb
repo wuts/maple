@@ -1,0 +1,28 @@
+<p>
+  <b>Id:</b>
+  <%=h @comment.id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @comment.title %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%=h @comment.author %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @comment.email %>
+</p>
+
+<p>
+  <b>Article:</b>
+  <%=h @comment.article_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

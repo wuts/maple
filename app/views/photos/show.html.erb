@@ -1,0 +1,33 @@
+<p>
+  <b>Id:</b>
+  <%=h @photo.id %>
+</p>
+
+<p>
+  <b>Gallery:</b>
+  <%=h @photo.gallery_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @photo.name %>
+</p>
+
+<p>
+  <b>Intro:</b>
+  <%=h @photo.intro %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @photo.description %>
+</p>
+
+<p>
+  <b>Attachment:</b>
+  <%=h @photo.attachment %>
+</p>
+
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>
