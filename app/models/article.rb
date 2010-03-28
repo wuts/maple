@@ -1,5 +1,9 @@
+# -*- coding: utf-8 -*-
 class Article < ActiveRecord::Base
   belongs_to :categories
+  validates_presence_of :title
+  
+  
   
   named_scope :live,:conditions=>{:status=>'live'},:limit=>10,:order=>'created_at DESC'
   named_scope :draft,:conditions=>{:status=>'draft'},:limit=>10,:order=>'created_at DESC'

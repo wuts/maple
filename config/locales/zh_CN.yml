@@ -14,9 +14,20 @@ zh_CN:
   simplified_Chinese: "简体中文"
 
   activerecord:
-  models:
-    article: "文章"
-    user: "用户"
-  attributes:
-    article:
-      title: "标题"
+    models:
+      article: "文章"
+      user: "用户"
+    attributes:
+      article:
+        title: "标题"
+        slug: "缩写"
+    errors:
+      messages:
+        blank: "不能为空"
+      template:
+        header:
+          one: "在保存{{model}}时发生一个错误"
+          other: "在保存{{model}}时发生{{count}}个错误" 
+        body: "以下字段出现问题"
+       
+    
