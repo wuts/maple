@@ -3,3 +3,8 @@
 
 en:
   hello: "Hello world"
+  submit: "Submit"
+  create: "Create"
+  new: "New"
+  update: "Update"
+  save: "Save"  

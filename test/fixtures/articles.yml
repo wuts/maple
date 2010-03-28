@@ -2,20 +2,20 @@
 
 one:
   id: 1
-  title: MyString
-  slug: MyString
+  title: 上海将迎来世博会第一场大雪
+  slug: snow
   category_id: 1
-  attachment: MyString
-  intro: MyString
-  body: MyString
-  status: MyString
+  attachment: snow.jpg
+  intro: 世博
+  body: 大学
+  status: live
 
 two:
   id: 1
-  title: MyString
-  slug: MyString
-  category_id: 1
-  attachment: MyString
-  intro: MyString
-  body: MyString
-  status: MyString
+  title: 我的大学
+  slug: college
+  category_id: 2
+  attachment: college.jpg
+  intro: Time
+  body: sodld
+  status: draft

@@ -1,7 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :categories
-
+  map.resources :categories do |category|
+    category.resources :articles
+  end
   map.resources :articles
+  
+  
 
   map.resources :users
   map.resource :sessions
