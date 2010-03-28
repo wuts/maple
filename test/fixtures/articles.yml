@@ -11,7 +11,7 @@ one:
   status: live
 
 two:
-  id: 1
+  id: 2
   title: 我的大学
   slug: college
   category_id: 2
