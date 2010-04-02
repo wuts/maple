@@ -1,31 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
-<<<<<<< HEAD:config/routes.rb
+
   map.resources :comments
-=======
->>>>>>> b32c7abe52562619ab738f1804b150bcadc0aecc:config/routes.rb
 
   map.resources :photos
 
   map.resources :galleries
 
-<<<<<<< HEAD:config/routes.rb
   map.resources :languages
-=======
-  map.resources :comments
 
-  map.resources :categories
-
->>>>>>> b32c7abe52562619ab738f1804b150bcadc0aecc:config/routes.rb
-
+ 
   map.resources :categories do |category|
     category.resources :articles
   end
-<<<<<<< HEAD:config/routes.rb
-  map.resources :articles,:has_many=>:comments
-=======
 
-  map.resources :articles
->>>>>>> b32c7abe52562619ab738f1804b150bcadc0aecc:config/routes.rb
+  map.resources :articles,:has_many=>:comments
+
   
   
 
