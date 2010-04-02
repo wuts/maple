@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100323115947) do
+ActiveRecord::Schema.define(:version => 20100401105903) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -21,10 +21,52 @@ ActiveRecord::Schema.define(:version => 20100323115947) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "language_id"
   end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "language_id"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "author"
+    t.string   "email"
+    t.text     "comment"
+    t.integer  "article_id"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "galleries", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "parent_id"
+    t.integer  "language_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "languages", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.string   "image"
+    t.integer  "ordering"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "gallery_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "filename"
+    t.integer  "ordering"
+    t.integer  "language_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

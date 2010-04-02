@@ -31,6 +31,10 @@
     <%= f.label :body %><br />
     <%= f.text_field :body %>
   </p>
+   <p>
+    <%= f.label :language_id %><br />
+	<%=f.collection_select :language_id,Language.all,:id,:name,{:prompt=>true} %>  
+  </p>
   <p>
     <%= f.label :status %><br />
     <%= f.text_field :status %>

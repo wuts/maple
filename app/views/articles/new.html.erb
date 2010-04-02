@@ -36,6 +36,11 @@
     <%= f.label :status %><br />
     <%= f.text_field :status %>
   </p>
+   <p>
+    <%= f.label :language_id %><br />
+	<%=f.collection_select :language_id,Language.all,:id,:name,{:prompt=>true} %>  
+   </p>
+   
   <p>
     <%= f.submit 'Create' %>
   </p>

@@ -3,13 +3,18 @@
 <% form_for(@category) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :id %><br />
-    <%= f.text_field :id %>
+ <p>
+    <%= f.label :id,nil,:style=>"display:none;" %><br />
+    <%= f.hidden_field :id %>
   </p>
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :language_id %><br />
+	<%=f.collection_select :language_id,Language.all,:id,:name,{:prompt=>true} %>  
   </p>
   <p>
     <%= f.submit 'Create' %>
