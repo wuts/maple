@@ -4,14 +4,17 @@
   <%= f.error_messages %>
 
   <p>
+
     <%= f.label t(:id),nil,:style=>"display:none;" %><br />
     <%= f.hidden_field :id %>
+
   </p>
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
   <p>
+
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </p>
@@ -21,7 +24,8 @@
   </p>
   <p>
    <%= f.label :language_id %><br />
-	<%=f.collection_select :language_id,Language.all,:id,:name,{:prompt=>true} %>  
+  <%=f.collection_select :language_id,Language.all,:id,:name,{:prompt=>true} %>  
+
   </p>
   <p>
     <%= f.submit 'Update' %>
@@ -29,4 +33,6 @@
 <% end %>
 
 <%= link_to 'Show', @gallery %> |
+
 <%= link_to 'Back', galleries_path %>
+

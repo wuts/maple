@@ -10,7 +10,6 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20100401105903) do
-
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.string   "slug"
@@ -22,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20100401105903) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "language_id"
+
   end
 
   create_table "categories", :force => true do |t|
@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(:version => 20100401105903) do
     t.text     "comment"
     t.integer  "article_id"
     t.integer  "parent_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
+
+
 
   create_table "galleries", :force => true do |t|
     t.string   "title"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20100401105903) do
     t.string   "image"
     t.integer  "ordering"
     t.integer  "status"
+
     t.datetime "created_at"
     t.datetime "updated_at"
   end

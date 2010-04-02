@@ -2,6 +2,7 @@
 
 one:
   id: 1
+
   author: MyString
   email: MyString
   comment: MyText
@@ -15,3 +16,5 @@ two:
   comment: MyText
   article_id: 1
   parent_id: 1
+
+

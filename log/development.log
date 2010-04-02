@@ -604,13 +604,20 @@ Processing UsersController#create (for 127.0.0.1 at 2010-03-20 23:25:01) [POST]
   [4;35;1mUsers Create (9.0ms)[0m   [0mINSERT INTO `users` (`name`, `salt`, `created_at`, `activated_at`, `crypted_password`, `remember_token_expires_at`, `updated_at`, `deleted_at`, `activation_code`, `remember_token`, `login`, `email`, `state`) VALUES('', 'ecf52c8e90f7888a6c300eff873143563d32f060', '2010-03-20 15:25:01', NULL, '14b03fecd89a4fc9b29f08364ddfe3b1b75c66b9', NULL, '2010-03-20 15:25:01', NULL, '89839f94a93210289d7cf1561d79b4edb6d69ccc', NULL, 'wuts', 'wuts73@gmail.com', 'pending')[0m
 Sent mail to wuts73@gmail.com
 
-Date: Sat, 20 Mar 2010 23:25:01 +0800
-From: ADMINEMAIL
-To: wuts73@gmail.com
-Subject: [YOURSITE] Please activate your new account
-Mime-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-
+Date: Sat, 20 Mar 2010 23:25:01 +0800
+
+From: ADMINEMAIL
+
+To: wuts73@gmail.com
+
+Subject: [YOURSITE] Please activate your new account
+
+Mime-Version: 1.0
+
+Content-Type: text/plain; charset=utf-8
+
+
+
 Your account has been created.
 
   Username: wuts
@@ -629,6 +636,7 @@ Completed in 3947ms (DB: 49) | 302 Found [http://localhost/users]
 
 
 Processing ApplicationController#new (for 127.0.0.1 at 2010-03-20 23:25:36) [GET]
+
   Parameters: {"action"=>"new", "controller"=>"session"}
 
 NameError (uninitialized constant SessionController):
@@ -3729,10 +3737,443 @@ Completed in 61ms (View: 33, DB: 6) | 200 OK [http://localhost/articles]
   [4;36;1mUsers Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (created_at>'2010-03-18 12:47:52') [0m
   [4;35;1mUsers Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (created_at>'2010-03-24 12:48:02') [0m
   [4;36;1mUsers Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (created_at>'2010-03-24 12:48:28') [0m
+
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (175.8ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (222.5ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100320152117)
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (111.0ms)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(40), `name` varchar(100) DEFAULT '', `email` varchar(100), `crypted_password` varchar(40), `salt` varchar(40), `created_at` datetime, `updated_at` datetime, `remember_token` varchar(40), `remember_token_expires_at` datetime, `activation_code` varchar(40), `activated_at` datetime, `state` varchar(255) DEFAULT 'passive', `deleted_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (189.2ms)[0m   [0mCREATE UNIQUE INDEX `index_users_on_login` ON `users` (`login`)[0m
+  [4;36;1mSQL (43.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100320152117')[0m
+Migrating to CreateArticles (20100320161455)
+  [4;35;1mSQL (105.4ms)[0m   [0mCREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `slug` varchar(255), `category_id` int(11), `attachment` varchar(255), `intro` varchar(255), `body` varchar(255), `status` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100320161455')[0m
+Migrating to CreateCategories (20100323115947)
+  [4;35;1mSQL (94.5ms)[0m   [0mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100323115947')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `articles`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `articles`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `categories`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `categories`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2010-03-27 12:46:01) [GET]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Completed in 76ms (View: 10, DB: 1) | 200 OK [http://localhost/rails/info/properties]
+
   [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
   [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
 
 
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-27 12:46:05) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.3ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` WHERE (created_at>'2010-03-26 04:46:05') [0m
+Completed in 388ms (View: 222, DB: 1) | 200 OK [http://localhost/articles]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#new (for 127.0.0.1 at 2010-03-27 12:46:07) [GET]
+  Parameters: {"action"=>"new", "controller"=>"articles"}
+  [4;36;1mArticle Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+Rendering template within layouts/articles
+Rendering articles/new
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM `categories` [0m
+Completed in 49ms (View: 40, DB: 1) | 200 OK [http://localhost/articles/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#new (for 127.0.0.1 at 2010-03-27 12:46:11) [GET]
+  Parameters: {"action"=>"new", "controller"=>"articles"}
+  [4;36;1mArticle Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+Rendering template within layouts/articles
+Rendering articles/new
+  [4;35;1mCategory Load (0.1ms)[0m   [0mSELECT * FROM `categories` [0m
+Completed in 38ms (View: 25, DB: 1) | 200 OK [http://localhost/articles/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#new (for 127.0.0.1 at 2010-03-27 12:51:50) [GET]
+  Parameters: {"action"=>"new", "controller"=>"articles"}
+  [4;36;1mArticle Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+Rendering template within layouts/articles
+Rendering articles/new
+  [4;35;1mCategory Load (0.1ms)[0m   [0mSELECT * FROM `categories` [0m
+Completed in 27ms (View: 18, DB: 1) | 200 OK [http://localhost/articles/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-27 12:51:53) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.1ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` WHERE (created_at>'2010-03-26 04:51:53') [0m
+Completed in 63ms (View: 3, DB: 1) | 200 OK [http://localhost/articles]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#new (for 127.0.0.1 at 2010-03-27 12:51:54) [GET]
+  Parameters: {"action"=>"new", "controller"=>"articles"}
+  [4;36;1mArticle Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+Rendering template within layouts/articles
+Rendering articles/new
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` [0m
+Completed in 27ms (View: 18, DB: 1) | 200 OK [http://localhost/articles/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-27 12:51:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.1ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` WHERE (created_at>'2010-03-26 04:51:59') [0m
+Completed in 12ms (View: 3, DB: 1) | 200 OK [http://localhost/articles]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-27 12:52:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;36;1mCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/categories
+Rendering categories/index
+Completed in 41ms (View: 33, DB: 0) | 200 OK [http://localhost/categories]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#new (for 127.0.0.1 at 2010-03-27 12:52:07) [GET]
+  Parameters: {"action"=>"new", "controller"=>"categories"}
+  [4;35;1mCategory Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Rendering template within layouts/categories
+Rendering categories/new
+Completed in 39ms (View: 31, DB: 1) | 200 OK [http://localhost/categories/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#create (for 127.0.0.1 at 2010-03-27 12:52:15) [POST]
+  Parameters: {"category"=>{"name"=>"上\346\265\267", "id"=>""}, "commit"=>"Create", "action"=>"create", "authenticity_token"=>"iUk5qay5nOdEVh0JQM6diinUl0GOkMvWBaXsgsunHLs=", "controller"=>"categories"}
+  [4;36;1mCategory Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.3ms)[0m   [0;1mINSERT INTO `categories` (`name`, `created_at`, `updated_at`) VALUES('上海', '2010-03-27 04:52:15', '2010-03-27 04:52:15')[0m
+  [4;35;1mSQL (58.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/categories/1
+Completed in 73ms (DB: 59) | 302 Found [http://localhost/categories]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2010-03-27 12:52:15) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"categories"}
+  [4;36;1mCategory Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+Rendering template within layouts/categories
+Rendering categories/show
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://localhost/categories/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-27 12:52:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/categories
+Rendering categories/index
+  [4;35;1mCategory Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#new (for 127.0.0.1 at 2010-03-27 12:52:17) [GET]
+  Parameters: {"action"=>"new", "controller"=>"categories"}
+  [4;36;1mCategory Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Rendering template within layouts/categories
+Rendering categories/new
+Completed in 14ms (View: 5, DB: 1) | 200 OK [http://localhost/categories/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#create (for 127.0.0.1 at 2010-03-27 12:52:21) [POST]
+  Parameters: {"category"=>{"name"=>"北\344\272\254", "id"=>""}, "commit"=>"Create", "action"=>"create", "authenticity_token"=>"iUk5qay5nOdEVh0JQM6diinUl0GOkMvWBaXsgsunHLs=", "controller"=>"categories"}
+  [4;35;1mCategory Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.3ms)[0m   [0mINSERT INTO `categories` (`name`, `created_at`, `updated_at`) VALUES('北京', '2010-03-27 04:52:21', '2010-03-27 04:52:21')[0m
+  [4;36;1mSQL (55.6ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/2
+Completed in 70ms (DB: 57) | 302 Found [http://localhost/categories]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2010-03-27 12:52:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"categories"}
+  [4;35;1mCategory Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+Rendering template within layouts/categories
+Rendering categories/show
+Completed in 62ms (View: 3, DB: 1) | 200 OK [http://localhost/categories/2]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-27 12:52:22) [GET]
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM `categories` [0m
+Rendering template within layouts/categories
+Rendering categories/index
+  [4;36;1mCategory Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 21ms (View: 12, DB: 1) | 200 OK [http://localhost/categories]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-27 12:52:24) [GET]
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.1ms)[0m   [0mSELECT * FROM `categories` [0m
+Rendering template within layouts/categories
+Rendering categories/index
+  [4;36;1mCategory Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 20ms (View: 11, DB: 1) | 200 OK [http://localhost/categories]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-27 12:52:24) [GET]
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.1ms)[0m   [0mSELECT * FROM `categories` [0m
+Rendering template within layouts/categories
+Rendering categories/index
+  [4;36;1mCategory Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 20ms (View: 11, DB: 1) | 200 OK [http://localhost/categories]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-27 12:52:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` [0m
+Rendering template within layouts/categories
+Rendering categories/index
+  [4;36;1mCategory Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 20ms (View: 12, DB: 1) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-27 12:53:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/categories
+Rendering categories/index
+  [4;35;1mCategory Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Completed in 55ms (View: 39, DB: 1) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-27 12:53:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;36;1mCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/categories
+Rendering categories/index
+  [4;35;1mCategory Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Completed in 20ms (View: 12, DB: 1) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-27 12:53:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;36;1mCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/categories
+Rendering categories/index
+  [4;35;1mCategory Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Completed in 21ms (View: 12, DB: 1) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-27 12:53:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;36;1mCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/categories
+Rendering categories/index
+  [4;35;1mCategory Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Completed in 20ms (View: 11, DB: 1) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-27 12:53:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;36;1mCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/categories
+Rendering categories/index
+  [4;35;1mCategory Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Completed in 20ms (View: 12, DB: 1) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-27 12:54:13) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.1ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` WHERE (created_at>'2010-03-26 04:54:13') [0m
+Completed in 111ms (View: 15, DB: 1) | 200 OK [http://localhost/articles]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-27 12:54:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.2ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` WHERE (created_at>'2010-03-26 04:54:58') [0m
+Completed in 62ms (View: 3, DB: 1) | 200 OK [http://localhost/articles]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#new (for 127.0.0.1 at 2010-03-27 12:55:03) [GET]
+  Parameters: {"action"=>"new", "controller"=>"articles"}
+  [4;36;1mArticle Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+Rendering template within layouts/articles
+Rendering articles/new
+  [4;35;1mCategory Load (0.1ms)[0m   [0mSELECT * FROM `categories` [0m
+  [4;36;1mCategory Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 36ms (View: 26, DB: 2) | 200 OK [http://localhost/articles/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#create (for 127.0.0.1 at 2010-03-27 12:55:13) [POST]
+  Parameters: {"article"=>{"slug"=>"fsfs", "intro"=>"fsda", "body"=>"sdf", "title"=>"dsfs", "attachment"=>"sfs", "id"=>"", "category_id"=>"2", "status"=>"live"}, "commit"=>"Create", "action"=>"create", "authenticity_token"=>"iUk5qay5nOdEVh0JQM6diinUl0GOkMvWBaXsgsunHLs=", "controller"=>"articles"}
+  [4;35;1mArticle Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mArticle Create (0.3ms)[0m   [0mINSERT INTO `articles` (`slug`, `intro`, `created_at`, `title`, `body`, `attachment`, `updated_at`, `category_id`, `status`) VALUES('fsfs', 'fsda', '2010-03-27 04:55:13', 'dsfs', 'sdf', 'sfs', '2010-03-27 04:55:13', 2, 'live')[0m
+  [4;36;1mSQL (55.6ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/articles/1
+Completed in 71ms (DB: 57) | 302 Found [http://localhost/articles]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#show (for 127.0.0.1 at 2010-03-27 12:55:13) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"articles"}
+  [4;35;1mArticle Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.3ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`id` = 1) [0m
+Rendering template within layouts/articles
+Rendering articles/show
+Completed in 43ms (View: 34, DB: 1) | 200 OK [http://localhost/articles/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-27 12:55:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;36;1mArticle Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` WHERE (created_at>'2010-03-26 04:55:16') [0m
+Completed in 19ms (View: 9, DB: 2) | 200 OK [http://localhost/articles]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-27 12:55:17) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.1ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;35;1mArticle Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.3ms)[0m   [0;1mSELECT * FROM `articles` WHERE (created_at>'2010-03-26 04:55:17') [0m
+Completed in 21ms (View: 10, DB: 2) | 200 OK [http://localhost/articles]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-27 12:56:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (0.1ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;36;1mArticle Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (0.4ms)[0m   [0mSELECT * FROM `articles` WHERE (created_at>'2010-03-26 04:56:50') [0m
+Completed in 20ms (View: 10, DB: 2) | 200 OK [http://localhost/articles]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-27 12:56:52) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.2ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;35;1mArticle Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.3ms)[0m   [0;1mSELECT * FROM `articles` WHERE (created_at>'2010-03-26 04:56:52') [0m
+Completed in 19ms (View: 9, DB: 1) | 200 OK [http://localhost/articles]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-27 12:56:53) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (0.2ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/articles
+Rendering articles/index
+  [4;36;1mArticle Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` WHERE (created_at>'2010-03-26 04:56:53') [0m
+Completed in 23ms (View: 13, DB: 2) | 200 OK [http://localhost/articles]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-28 08:17:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (9.8ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;35;1mArticle Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.3ms)[0m   [0;1mSELECT * FROM `articles` WHERE (created_at>'2010-03-27 00:17:57') [0m
+Completed in 458ms (View: 269, DB: 12) | 200 OK [http://localhost/articles]
+=======
 Processing ArticlesController#index (for 127.0.0.1 at 2010-03-28 12:02:09) [GET]
   Parameters: {"action"=>"index", "controller"=>"articles"}
   [4;36;1mArticle Load (0.2ms)[0m   [0;1mSELECT * FROM `articles` [0m
@@ -3741,10 +4182,369 @@ Rendering articles/index
   [4;35;1mArticle Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
   [4;36;1mArticle Load (0.6ms)[0m   [0;1mSELECT * FROM `articles` WHERE (created_at>'2010-03-27 04:02:09') [0m
 Completed in 285ms (View: 112, DB: 2) | 200 OK [http://localhost/articles]
+
   [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
 
 
+Processing ArticlesController#show (for 127.0.0.1 at 2010-03-28 08:18:02) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"articles"}
+  [4;35;1mArticle Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.4ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering articles/show
+Completed in 37ms (View: 27, DB: 1) | 200 OK [http://localhost/articles/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-28 08:18:33) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (0.1ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;36;1mArticle Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (0.4ms)[0m   [0mSELECT * FROM `articles` WHERE (created_at>'2010-03-27 00:18:33') [0m
+Completed in 26ms (View: 14, DB: 2) | 200 OK [http://localhost/articles]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#new (for 127.0.0.1 at 2010-03-28 08:18:46) [GET]
+  Parameters: {"action"=>"new", "controller"=>"articles"}
+  [4;36;1mArticle Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+Rendering template within layouts/application
+Rendering articles/new
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM `categories` [0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 101ms (View: 89, DB: 2) | 200 OK [http://localhost/articles/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#create (for 127.0.0.1 at 2010-03-28 08:19:15) [POST]
+  Parameters: {"article"=>{"slug"=>"new", "intro"=>"fss", "body"=>"sfsdf", "title"=>"山海人\345\203\217", "attachment"=>"fsdf", "id"=>"", "category_id"=>"2", "status"=>"live"}, "commit"=>"Create", "action"=>"create", "authenticity_token"=>"iUk5qay5nOdEVh0JQM6diinUl0GOkMvWBaXsgsunHLs=", "controller"=>"articles"}
+  [4;35;1mArticle Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mArticle Create (0.3ms)[0m   [0mINSERT INTO `articles` (`slug`, `intro`, `created_at`, `title`, `body`, `attachment`, `updated_at`, `category_id`, `status`) VALUES('new', 'fss', '2010-03-28 00:19:16', '山海人像', 'sfsdf', 'fsdf', '2010-03-28 00:19:16', 2, 'live')[0m
+  [4;36;1mSQL (46.2ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/articles/2
+Completed in 62ms (DB: 48) | 302 Found [http://localhost/articles]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#show (for 127.0.0.1 at 2010-03-28 08:19:16) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"articles"}
+  [4;35;1mArticle Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.3ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering articles/show
+Completed in 18ms (View: 8, DB: 1) | 200 OK [http://localhost/articles/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-28 08:19:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;36;1mArticle Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` WHERE (created_at>'2010-03-27 00:19:19') [0m
+Completed in 27ms (View: 18, DB: 2) | 200 OK [http://localhost/articles]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-28 15:54:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (10.1ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;35;1mArticle Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.4ms)[0m   [0;1mSELECT * FROM `articles` WHERE (created_at>'2010-03-27 07:54:44') [0m
+Completed in 428ms (View: 210, DB: 12) | 200 OK [http://localhost/articles]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#show (for 127.0.0.1 at 2010-03-28 15:54:51) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"articles"}
+  [4;35;1mArticle Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.4ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering articles/show
+Completed in 95ms (View: 86, DB: 1) | 200 OK [http://localhost/articles/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-28 15:54:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (0.1ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;36;1mArticle Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` WHERE (created_at>'2010-03-27 07:54:55') [0m
+Completed in 27ms (View: 18, DB: 1) | 200 OK [http://localhost/articles]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#new (for 127.0.0.1 at 2010-03-28 15:54:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"articles"}
+  [4;36;1mArticle Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+Rendering template within layouts/application
+Rendering articles/new
+  [4;35;1mCategory Load (0.4ms)[0m   [0mSELECT * FROM `categories` [0m
+  [4;36;1mCategory Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 170ms (View: 106, DB: 2) | 200 OK [http://localhost/articles/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#new (for 127.0.0.1 at 2010-03-28 15:55:04) [GET]
+  Parameters: {"action"=>"new", "controller"=>"articles"}
+  [4;35;1mArticle Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+Rendering template within layouts/application
+Rendering articles/new
+  [4;36;1mCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `categories` [0m
+  [4;35;1mCategory Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Completed in 31ms (View: 21, DB: 2) | 200 OK [http://localhost/articles/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#create (for 127.0.0.1 at 2010-03-28 15:55:17) [POST]
+  Parameters: {"article"=>{"slug"=>"", "intro"=>"", "body"=>"", "title"=>"", "attachment"=>"", "id"=>"", "category_id"=>"", "status"=>""}, "commit"=>"Create", "action"=>"create", "authenticity_token"=>"P0bG8ea7Wl+F+s2GW0r43gMlafhqh9xRPS80ftF0MoA=", "controller"=>"articles"}
+  [4;36;1mArticle Columns (40.7ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mArticle Create (0.4ms)[0m   [0;1mINSERT INTO `articles` (`slug`, `intro`, `created_at`, `title`, `body`, `attachment`, `updated_at`, `category_id`, `status`) VALUES('', '', '2010-03-28 07:55:17', '', '', '', '2010-03-28 07:55:17', NULL, '')[0m
+  [4;35;1mSQL (339.3ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/articles/3
+Completed in 401ms (DB: 381) | 302 Found [http://localhost/articles]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#show (for 127.0.0.1 at 2010-03-28 15:55:18) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"articles"}
+  [4;36;1mArticle Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` WHERE (`articles`.`id` = 3) [0m
+Rendering template within layouts/application
+Rendering articles/show
+Completed in 18ms (View: 9, DB: 1) | 200 OK [http://localhost/articles/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-28 15:55:23) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.4ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;35;1mArticle Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.3ms)[0m   [0;1mSELECT * FROM `articles` WHERE (created_at>'2010-03-27 07:55:23') [0m
+Completed in 34ms (View: 23, DB: 2) | 200 OK [http://localhost/articles]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#edit (for 127.0.0.1 at 2010-03-28 15:55:27) [GET]
+  Parameters: {"action"=>"edit", "id"=>"3", "controller"=>"articles"}
+  [4;35;1mArticle Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mArticle Load (0.2ms)[0m   [0;1mSELECT * FROM `articles` WHERE (`articles`.`id` = 3) [0m
+Rendering template within layouts/application
+Rendering articles/edit
+  [4;35;1mCategory Load (0.1ms)[0m   [0mSELECT * FROM `categories` [0m
+  [4;36;1mCategory Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 37ms (View: 27, DB: 2) | 200 OK [http://localhost/articles/3/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100320152117)
+Migrating to CreateArticles (20100320161455)
+Migrating to CreateCategories (20100323115947)
+Migrating to CreateComments (20100328080421)
+  [4;36;1mSQL (140.2ms)[0m   [0;1mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `author` varchar(255), `email` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (43.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100328080421')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `articles`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `articles`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mdescribe `categories`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `categories`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-28 16:05:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (0.2ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;36;1mArticle Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` WHERE (created_at>'2010-03-27 08:05:57') [0m
+Completed in 33ms (View: 22, DB: 1) | 200 OK [http://localhost/articles]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#show (for 127.0.0.1 at 2010-03-28 16:06:00) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"articles"}
+  [4;36;1mArticle Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mArticle Load (0.4ms)[0m   [0mSELECT * FROM `articles` WHERE (`articles`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering articles/show
+Completed in 21ms (View: 9, DB: 1) | 200 OK [http://localhost/articles/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommentsController#index (for 127.0.0.1 at 2010-03-28 16:06:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"comments"}
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM `comments` [0m
+Rendering template within layouts/comments
+Rendering comments/index
+Completed in 79ms (View: 70, DB: 1) | 200 OK [http://localhost/comments]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommentsController#new (for 127.0.0.1 at 2010-03-28 16:06:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"comments"}
+  [4;35;1mComment Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+Rendering template within layouts/comments
+Rendering comments/new
+Completed in 23ms (View: 14, DB: 1) | 200 OK [http://localhost/comments/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (166.2ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (233.5ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100320152117)
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (100.6ms)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(40), `name` varchar(100) DEFAULT '', `email` varchar(100), `crypted_password` varchar(40), `salt` varchar(40), `created_at` datetime, `updated_at` datetime, `remember_token` varchar(40), `remember_token_expires_at` datetime, `activation_code` varchar(40), `activated_at` datetime, `state` varchar(255) DEFAULT 'passive', `deleted_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (234.6ms)[0m   [0mCREATE UNIQUE INDEX `index_users_on_login` ON `users` (`login`)[0m
+  [4;36;1mSQL (43.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100320152117')[0m
+Migrating to CreateArticles (20100320161455)
+  [4;35;1mSQL (93.3ms)[0m   [0mCREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `slug` varchar(255), `category_id` int(11), `attachment` varchar(255), `intro` varchar(255), `body` varchar(255), `status` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (54.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100320161455')[0m
+Migrating to CreateCategories (20100323115947)
+  [4;35;1mSQL (83.1ms)[0m   [0mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100323115947')[0m
+Migrating to CreateComments (20100328080721)
+  [4;35;1mSQL (94.2ms)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `author` varchar(255), `email` varchar(255), `article_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100328080721')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `articles`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `articles`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `categories`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `categories`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `comments`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `comments`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommentsController#new (for 127.0.0.1 at 2010-03-28 16:07:46) [GET]
+  Parameters: {"action"=>"new", "controller"=>"comments"}
+  [4;36;1mComment Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+Rendering template within layouts/comments
+Rendering comments/new
+Completed in 24ms (View: 17, DB: 1) | 200 OK [http://localhost/comments/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-03-28 16:07:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;36;1mArticle Load (0.3ms)[0m   [0;1mSELECT * FROM `articles` WHERE (created_at>'2010-03-27 08:07:56') [0m
+Completed in 17ms (View: 7, DB: 1) | 200 OK [http://localhost/articles]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#new (for 127.0.0.1 at 2010-03-28 16:07:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"articles"}
+  [4;35;1mArticle Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+Rendering template within layouts/application
+Rendering articles/new
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM `categories` [0m
+Completed in 29ms (View: 19, DB: 1) | 200 OK [http://localhost/articles/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100320152117)
+Migrating to CreateArticles (20100320161455)
+Migrating to CreateCategories (20100323115947)
+Migrating to CreateComments (20100328080721)
+Migrating to CreateGalleries (20100328081159)
+  [4;36;1mSQL (185.6ms)[0m   [0;1mCREATE TABLE `galleries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `slug` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (43.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100328081159')[0m
+Migrating to CreatePhotos (20100328081327)
+  [4;36;1mSQL (93.9ms)[0m   [0;1mCREATE TABLE `photos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `gallery_id` int(11), `name` varchar(255), `intro` varchar(255), `description` text, `attachment` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (43.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100328081327')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mdescribe `articles`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `articles`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mdescribe `categories`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `categories`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW FIELDS FROM `galleries`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mdescribe `galleries`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `galleries`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW FIELDS FROM `photos`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mdescribe `photos`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `photos`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#new (for 127.0.0.1 at 2010-03-28 16:28:40) [GET]
+  Parameters: {"action"=>"new", "controller"=>"articles"}
+  [4;35;1mArticle Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+Rendering template within layouts/application
+Rendering articles/new
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` [0m
+Completed in 32ms (View: 22, DB: 1) | 200 OK [http://localhost/articles/new]
+=======
 Processing ArticlesController#show (for 127.0.0.1 at 2010-03-28 12:02:11) [GET]
   Parameters: {"action"=>"show", "id"=>"1", "controller"=>"articles"}
   [4;35;1mArticle Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
