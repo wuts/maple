@@ -1,0 +1,33 @@
+<p>
+  <b>Id:</b>
+  <%=h @language.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @language.name %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%=h @language.code %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%=h @language.image %>
+</p>
+
+<p>
+  <b>Ordering:</b>
+  <%=h @language.ordering %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @language.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_language_path(@language) %> |
+<%= link_to 'Back', languages_path %>
