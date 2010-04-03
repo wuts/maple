@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class Article < ActiveRecord::Base
-  belongs_to :categories
+  belongs_to :category
   belongs_to :language
   has_many :comments,:dependent=>:destroy
   accepts_nested_attributes_for :comments,:reject_if=>proc{|attributes| atrributes['author'].blank? }

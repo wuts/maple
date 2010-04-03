@@ -5,38 +5,32 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Articles: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
   <%= stylesheet_link_tag 'layout' %>
-  <%= stylesheet_link_tag 'default' %>
-  <%= stylesheet_link_tag 'boxes' %>
+ 
   <%= stylesheet_link_tag 'jquery/featured' %>
-  <%= stylesheet_link_tag 'links' %>
-  <%= stylesheet_link_tag 'content' %>
-  <%= stylesheet_link_tag 'common' %>
-  <%= stylesheet_link_tag 'lists' %>
+ 
+  <%= stylesheet_link_tag 'style' %>
   
 </head>
 <body>
    <div id="header">
-   <div id="logo">
+     <div id="logo">
     	<h1><a href="#"><%= t :site_name %></a></h1>
      	<h2><a href="#"></a><%= t :slogan %></h2>
     </div>
-  <div id="topmenu">
-	<ul>
-		<li><a href="#" id="topmenu1" accesskey="1" title=""><%= t :English %></a></li>
-		<li><a href="#" id="topmenu2" accesskey="2" title=""><%= t :simplified_Chinese%></a></li>
+    <div id="topmenu">
+    	<ul>
+	    	<li><a href="#" id="topmenu1" accesskey="1" title=""><%= t :English %></a></li>
+	    	<li><a href="#" id="topmenu2" accesskey="2" title=""><%= t :simplified_Chinese%></a></li>
 		
   	</ul>
+	</div>
   </div>
-   <div id="menu">
-            <ul>
-	        
-            </ul>
-        </div>
-   </div>
-   
-      <p style="color: green"><%= flash[:notice] %></p>
+
+  <div id="menu">
+    <%= render :partial=>"shared/menu" %>
+  </div>
+       <p style="color: green"><%= flash[:notice] %></p>
       
         <div id="content">
           <%= yield %>
