@@ -6,40 +6,65 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Articles: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'layout' %>
- 
   <%= stylesheet_link_tag 'jquery/featured' %>
- 
   <%= stylesheet_link_tag 'style' %>
-  
+  <%= stylesheet_link_tag 'menu' %>
+  <%= javascript_include_tag 'jquery/jquery','jquery/jquery.fancybox','jquery/jquery.featured','jquery/jquery-ui.min' %>
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+    $("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled (Adds empty span tag after ul.subnav*)
+
+    $("ul.topnav li span").click(function() { //When trigger is clicked...
+
+        //Following events are applied to the subnav itself (moving subnav up and down)
+        $(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+        $(this).parent().hover(function() {
+        }, function(){
+            $(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+        });
+
+        //Following events are applied to the trigger (Hover events for the trigger)
+        }).hover(function() {
+            $(this).addClass("subhover"); //On hover over, add class "subhover"
+        }, function(){  //On Hover Out
+            $(this).removeClass("subhover"); //On hover out, remove class "subhover"
+    });
+
+  });
+
+  </script>
+
 </head>
 <body>
    <div id="header">
      <div id="logo">
-    	<h1><a href="#"><%= t :site_name %></a></h1>
-     	<h2><a href="#"></a><%= t :slogan %></h2>
+        <h1><a href="#"><%= t :site_name %></a></h1>
+        <h2><a href="#"></a><%= t :slogan %></h2>
     </div>
     <div id="topmenu">
-    	<ul>
-	    	<li><a href="#" id="topmenu1" accesskey="1" title=""><%= t :English %></a></li>
-	    	<li><a href="#" id="topmenu2" accesskey="2" title=""><%= t :simplified_Chinese%></a></li>
-		
-  	</ul>
-	</div>
+        <ul>
+            <li><a href="?locale=en" id="topmenu1" accesskey="1" title=""><%= t :English %></a></li>
+            <li><a href="?locale=zh_CN" id="topmenu2" accesskey="2" title=""><%= t :Simplified_Chinese %></a></li>
+
+    </ul>
+    </div>
   </div>
 
   <div id="menu">
-    <%= render :partial=>"shared/menu" %>
+    <%= render :partial=>"shared/menu_#@locale" %>
   </div>
        <p style="color: green"><%= flash[:notice] %></p>
-      
+
         <div id="content">
           <%= yield %>
         </div>
         <!-- start footer -->
         <div id="footer">
-		  <p>
-			&copy;2008 - Powered by Maple. All Rights Reserved.
-		  </p>
+          <p>
+            &copy;2008 - Powered by Maple. All Rights Reserved.
+          </p>
 
         </div>
         <!-- end footer -->

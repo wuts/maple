@@ -1,10 +1,13 @@
 class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.xml
+
+  # layout "admin",:except=>[:index,:show]
+
   def index
     @articles = Article.all
     @live_articles=Article.live
-    @draft_articles=Article.draft 
+    @draft_articles=Article.draft
     @recent_articles=Article.recent
     respond_to do |format|
       format.html # index.html.erb
@@ -23,7 +26,7 @@ class ArticlesController < ApplicationController
       format.xml  { render :xml => @article }
     end
   end
-  
+
   def inline_render
     @str="render"
     render :inline=>
@@ -49,7 +52,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.xml
   def create
-   
+
     @article = Article.new(params[:article])
 
     respond_to do |format|

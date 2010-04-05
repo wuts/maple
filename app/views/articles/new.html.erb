@@ -17,8 +17,8 @@
   </p>
   <p>
     <%= f.label :category_id %><br />
-	<%=f.collection_select :category_id,Category.all,:id,:name,{:prompt=>true} %>
-  
+    <%=f.collection_select :category_id,Category.all,:id,:name,{:prompt=>true} %>
+
   </p>
   <p>
     <%= f.label :attachment %><br />
@@ -38,9 +38,9 @@
   </p>
    <p>
     <%= f.label :language_id %><br />
-	<%=f.collection_select :language_id,Language.all,:id,:name,{:prompt=>true} %>  
+    <%=f.collection_select :language_id,Language.all,:id,:name,{:prompt=>true} %>
    </p>
-   
+
   <p>
     <%= f.submit 'Create' %>
   </p>

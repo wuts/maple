@@ -1,18 +1,30 @@
 # Chinese (China) translations for Ruby on Rails
 # by tsechingho (http://github.com/tsechingho)
- 
+
 "zh_CN":
   submit: "提交"
+  login:  "登录"
+  username: "用户名"
+  logout: "退出"
   create: "创建"
+  password: "密码"
   save: "保存"
   update: "更新"
+  show: "浏览"
+  edit: "编辑"
+  delete: "删除"
   title: "标题"
-  site_name: "网站名称"
-  slogan: "广告语"
+  add_article: "添加新文章"
+  list_articles: "文章列表"
+  edit_article: "编辑文章"
+  sidemenu: "功能菜单"
+  site_name: "中加环境与可持续发展中心"
+  slogan: "China-Canada Center for Environment and Sustainable Development"
   English: "English"
-  simplified_Chinese: "简体中文"
+  Simplified_Chinese: "简体中文"
   articles: "文章列表"
-  
+  change_language: "改变语言"
+
   date:
     formats:
       default: "%Y-%m-%d"
@@ -23,7 +35,7 @@
     month_names: [~, 一月, 二月, 三月, 四月, 五月, 六月, 七月, 八月, 九月, 十月, 十一月, 十二月]
     abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
     order: [ :year, :month, :day ]
-  
+
   time:
     formats:
       default: "%Y年%b%d日 %A %H:%M:%S %Z"
@@ -31,7 +43,7 @@
       long: "%Y年%b%d日 %H:%M"
     am: "上午"
     pm: "下午"
-  
+
   datetime:
     distance_in_words:
       half_a_minute: "半分钟"
@@ -72,7 +84,7 @@
       hour: "时"
       minute: "分"
       second: "秒"
-  
+
   number:
     format:
       separator: "."
@@ -105,13 +117,13 @@
           mb: "MB"
           gb: "GB"
           tb: "TB"
-  
+
   support:
     array:
       words_connector: ", "
       two_words_connector: " 和 "
       last_word_connector: ", 和 "
-  
+
   activerecord:
     models:
       article: "文章"

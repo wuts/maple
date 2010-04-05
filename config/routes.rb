@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :news
+
+  map.resources :pages
+
 
   map.resources :comments
 
@@ -8,15 +12,20 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :languages
 
- 
+
   map.resources :categories do |category|
     category.resources :articles
   end
 
   map.resources :articles,:has_many=>:comments
 
-  
-  
+  map.namespace :admin do |admin|
+    admin.resources :articles
+    admin.resources :galleries
+    admin.resources :photos
+    admin.resources :pages
+  end
+
 
   map.resources :users
   map.resource :sessions
@@ -44,7 +53,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+
   # Sample resource route with more complex sub-resources
   #   map.resources :products do |products|
   #     products.resources :comments

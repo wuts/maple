@@ -5,13 +5,22 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   #before_filter :authenticate,:except=>[:index,:show]
+  before_filter :set_locale
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password,:password_confirmation
-  
+
+
+
+  def default_url_options(options={})
+    logger.debug "default_url_options is passed options: #{options.inspect}\n"
+    { :locale => I18n.locale }
+  end
+
   private
-  def authenticate
-    authenticate_or_request_with_http_basic do |name,password|
-      name=='admin' && password=='admin'
-    end
+
+
+  def set_locale
+    I18n.locale=params[:locale]
+    @locale=I18n.locale
   end
 end

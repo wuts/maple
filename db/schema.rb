@@ -9,19 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100401105903) do
+ActiveRecord::Schema.define(:version => 20100405013430) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.string   "slug"
     t.integer  "category_id"
-    t.string   "attachment"
+    t.string   "image"
     t.string   "intro"
-    t.string   "body"
+    t.text     "body"
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "language_id"
+    t.integer  "clicks"
+    t.string   "kind"
   end
 
   create_table "categories", :force => true do |t|
@@ -56,6 +58,27 @@ ActiveRecord::Schema.define(:version => 20100401105903) do
     t.string   "image"
     t.integer  "ordering"
     t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "category_id"
+    t.integer  "status"
+    t.string   "image"
+    t.integer  "featured"
+    t.integer  "language_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "status"
+    t.integer  "language_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
