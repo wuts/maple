@@ -1,0 +1,58 @@
+<p>
+  <b>Id:</b>
+  <%=h @bulletin.id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @bulletin.title %>
+</p>
+
+<p>
+  <b>Intro:</b>
+  <%=h @bulletin.intro %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @bulletin.body %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%=h @bulletin.image %>
+</p>
+
+<p>
+  <b>Image file name:</b>
+  <%=h @bulletin.image_file_name %>
+</p>
+
+<p>
+  <b>Image content type:</b>
+  <%=h @bulletin.image_content_type %>
+</p>
+
+<p>
+  <b>Image updated at:</b>
+  <%=h @bulletin.image_updated_at %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @bulletin.category_id %>
+</p>
+
+<p>
+  <b>Language:</b>
+  <%=h @bulletin.language_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @bulletin.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_bulletin_path(@bulletin) %> |
+<%= link_to 'Back', bulletins_path %>

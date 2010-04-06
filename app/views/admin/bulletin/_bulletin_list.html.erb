@@ -1,0 +1,11 @@
+<h4>
+  <%= link_to h(article.title),article %>
+</h4>
+
+<p>
+  <span>Category:</span>  <%=h article.category.name %> <span>Created at:</span><span><%= article.created_at %></span>
+</p>
+
+<p>
+  <%=h article.intro %>
+</p>
