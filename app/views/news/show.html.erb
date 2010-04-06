@@ -1,0 +1,43 @@
+<p>
+  <b>Id:</b>
+  <%=h @news.id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @news.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @news.body %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @news.category_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @news.status %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%=h @news.image %>
+</p>
+
+<p>
+  <b>Featured:</b>
+  <%=h @news.featured %>
+</p>
+
+<p>
+  <b>Language:</b>
+  <%=h @news.language_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_news_path(@news) %> |
+<%= link_to 'Back', news_path %>

@@ -1,0 +1,31 @@
+<p>
+  <b>Id:</b>
+  <%=h @gallery.id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @gallery.title %>
+</p>
+
+<p>
+
+  <b>Description:</b>
+  <%=h @gallery.description %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%=h @gallery.parent_id %>
+</p>
+
+<p>
+  <b>Language:</b>
+  <%=h @gallery.languag.name %>
+
+</p>
+
+
+<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
+
+<%= link_to 'Back', galleries_path %>

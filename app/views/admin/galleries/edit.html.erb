@@ -1,0 +1,38 @@
+<h1>Editing gallery</h1>
+
+<% form_for(@gallery) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+
+    <%= f.label t(:id),nil,:style=>"display:none;" %><br />
+    <%= f.hidden_field :id %>
+
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :parent_id %><br />
+    <%= f.text_field :parent_id %>
+  </p>
+  <p>
+   <%= f.label :language_id %><br />
+  <%=f.collection_select :language_id,Language.all,:id,:name,{:prompt=>true} %>  
+
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @gallery %> |
+
+<%= link_to 'Back', galleries_path %>
+
