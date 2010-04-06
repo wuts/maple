@@ -1,6 +1,6 @@
 <h1>New news</h1>
 
-<% form_for :news,@news,:url=>{:action=>'create'} do |f| %>
+<% form_for(@news) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -12,28 +12,44 @@
     <%= f.text_field :title %>
   </p>
   <p>
+    <%= f.label :intro %><br />
+    <%= f.text_area :intro %>
+  </p>
+  <p>
     <%= f.label :body %><br />
     <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.label :category_id %><br />
-    <%= f.text_field :category_id %>
-  </p>
-  <p>
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
   </p>
   <p>
     <%= f.label :image %><br />
     <%= f.text_field :image %>
   </p>
   <p>
-    <%= f.label :featured %><br />
-    <%= f.text_field :featured %>
+    <%= f.label :image_file_name %><br />
+    <%= f.text_field :image_file_name %>
+  </p>
+  <p>
+    <%= f.label :image_content_type %><br />
+    <%= f.text_field :image_content_type %>
+  </p>
+  <p>
+    <%= f.label :image_updated_at %><br />
+    <%= f.datetime_select :image_updated_at %>
+  </p>
+  <p>
+    <%= f.label :category_id %><br />
+    <%= f.text_field :category_id %>
   </p>
   <p>
     <%= f.label :language_id %><br />
     <%= f.text_field :language_id %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.label :featured %><br />
+    <%= f.text_field :featured %>
   </p>
   <p>
     <%= f.submit 'Create' %>

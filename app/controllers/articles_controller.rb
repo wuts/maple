@@ -95,4 +95,12 @@ class ArticlesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+  def upload
+    uploaded_io=params[:Article][:image]
+    File.open(Rails.root.join('public','uploads',uploaded_io.original_filename),'w') do |file|
+      file.write(uploaded_io.read)
+    end
+  end
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100405013430) do
+ActiveRecord::Schema.define(:version => 20100406141550) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,25 @@ ActiveRecord::Schema.define(:version => 20100405013430) do
     t.integer  "language_id"
     t.integer  "clicks"
     t.string   "kind"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "bulletins", :force => true do |t|
+    t.string   "title"
+    t.text     "intro"
+    t.text     "body"
+    t.string   "image"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.datetime "image_updated_at"
+    t.integer  "category_id"
+    t.integer  "language_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "categories", :force => true do |t|
@@ -64,12 +83,16 @@ ActiveRecord::Schema.define(:version => 20100405013430) do
 
   create_table "news", :force => true do |t|
     t.string   "title"
+    t.text     "intro"
     t.text     "body"
-    t.integer  "category_id"
-    t.integer  "status"
     t.string   "image"
-    t.integer  "featured"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.datetime "image_updated_at"
+    t.integer  "category_id"
     t.integer  "language_id"
+    t.string   "status"
+    t.integer  "featured"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

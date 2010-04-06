@@ -5,13 +5,13 @@
    <br class="clear-both">
    <% end %>
    <% content_for :left_col do %>
-      <%=render :partial=>'sidemenu'%>
+      <%=render :partial=>'sidemenu' %>
    <% end %>
    <% content_for :middle_col do %>
      <div class="box">
-    <h3 class="yellow"><%= t :add_article %></h3>
+    <h3 class="yellow"><%= t("add_"+@kind) %></h3>
     <div class="box-container">
-<% form_for(@article) do |f| %>
+<% form_for(@article,:html=>{:multipart=>true}) do |f| %>
   <%= f.error_messages %>
 
 
@@ -25,12 +25,12 @@
   </p>
   <p>
     <%= f.label :category_id %><br />
-    <%=f.collection_select :category_id,Category.all,:id,:name,{:prompt=>true} %>
+    <%=f.collection_select :category_id,Category.in_zh_CN,:id,:name,{:prompt=>true} %>
 
   </p>
   <p>
     <%= f.label :image %><br />
-    <%= f.text_field :image %>
+    <%= f.file_field :image %>
   </p>
   <p>
     <%= f.label :intro %><br />
@@ -44,11 +44,11 @@
     <%= f.label :status %><br />
     <%= f.select :status,[["select_status","please select status"],["live","live"],["draft","draft"],["featured","featured"]] %>
   </p>
-   <p>
+   <p class="hidden">
     <%= f.label :kind %><br />
     <%= f.select :kind,[["select_kind","please select kind"],["news","news"],["article","article"],["bulletin","bulletin"]] %>
   </p>
-   <p>
+   <p class="hidden">
     <%= f.label :language_id %><br />
     <%=f.collection_select :language_id,Language.all,:id,:name,{:prompt=>true} %>
    </p>

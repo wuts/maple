@@ -5,7 +5,9 @@
 <p>
   <span>Category:</span>  <%=h article.category.name %> <span>Created at:</span><span><%= article.created_at %></span>
 </p>
-
+<p>
+  <%= image_tag article.image.url %>
+</p>
 <p>
   <%=h article.intro %>
 </p>

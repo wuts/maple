@@ -1,6 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :news
 
+  map.resources :news
+
+  map.resources :bulletins
+
+  map.resources :news
+
   map.resources :pages
 
 

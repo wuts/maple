@@ -4,11 +4,11 @@
    <br class="clear-both">
    <% end %>
    <% content_for :left_col do %>
-      <%=render :partial=>'sidemenu'%>
+      <%=render :partial=>'sidemenu' %>
    <% end %>
    <% content_for :middle_col do %>
     <div class="box">
-    <h3 class="yellow"><%= t :list_articles %></h3>
+    <h3 class="yellow"><%= t('list_'+@kind.pluralize) %></h3>
     <div class="box-container">
       <table border="0" class="table-list">
                 <thead>
@@ -37,7 +37,7 @@
                             <td><%= article.category.name %></td>
                             <td><%= article.created_at %></td>
                             <td><%= article.status %></td>
-                            <td><%= link_to t(:show),admin_articles_path %>&nbsp;|&nbsp;<%= link_to t(:edit),edit_admin_article_path(article)+"&k=articles" %>&nbsp;|&nbsp;<%= link_to t(:delete),new_admin_article_path %>
+                            <td><%= link_to t(:show),admin_article_path(article),:method=>:get %>&nbsp;|&nbsp;<%= link_to t(:edit),edit_admin_article_path(article)+"&k="+@kind %>&nbsp;|&nbsp;<%= link_to t(:delete),new_admin_article_path %>
                                                        </td></tr>
                         <% end %>
                                     </tbody>

@@ -3,8 +3,8 @@
 
     <div class="box-container">
         <ul class="list-links">
-            <li><%= link_to t(:add_article),new_admin_article_path+"&k=articles" %></li>
-            <li><%= link_to t(:list_articles),admin_articles_path %></li>
+            <li><%= link_to t('add_'+@kind),new_admin_article_path+"&k="+@kind %></li>
+            <li><%= link_to t('list_'+@kind.pluralize),admin_articles_path+"&k="+@kind %></li>
 
         </ul>
     </div>

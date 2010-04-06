@@ -9,18 +9,13 @@
 </p>
 
 <p>
+  <b>Intro:</b>
+  <%=h @news.intro %>
+</p>
+
+<p>
   <b>Body:</b>
   <%=h @news.body %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%=h @news.category_id %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%=h @news.status %>
 </p>
 
 <p>
@@ -29,13 +24,38 @@
 </p>
 
 <p>
-  <b>Featured:</b>
-  <%=h @news.featured %>
+  <b>Image file name:</b>
+  <%=h @news.image_file_name %>
+</p>
+
+<p>
+  <b>Image content type:</b>
+  <%=h @news.image_content_type %>
+</p>
+
+<p>
+  <b>Image updated at:</b>
+  <%=h @news.image_updated_at %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @news.category_id %>
 </p>
 
 <p>
   <b>Language:</b>
   <%=h @news.language_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @news.status %>
+</p>
+
+<p>
+  <b>Featured:</b>
+  <%=h @news.featured %>
 </p>
 
 

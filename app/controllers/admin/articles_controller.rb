@@ -1,6 +1,7 @@
 class Admin::ArticlesController < Admin::AdminController
 
   def index
+    @kind=params[:k]
     @articles = Article.all
     @live_articles=Article.live
     @draft_articles=Article.draft
@@ -32,8 +33,10 @@ class Admin::ArticlesController < Admin::AdminController
   # GET /articles/new
   # GET /articles/new.xml
   def new
+    @kind=params[:k]
+    @default_status='live'
     @language=Language.find_by_code(params[:locale])
-    @article = Article.new({:language_id=>@language.id,:kind=>params[:k],:status=>params[:s]})
+    @article = Article.new({:language_id=>@language.id,:kind=>@kind,:status=>@default_status})
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @article }
@@ -42,6 +45,7 @@ class Admin::ArticlesController < Admin::AdminController
 
   # GET /articles/1/edit
   def edit
+    @kind=params[:k]
     @article = Article.find(params[:id])
   end
 

@@ -4,13 +4,13 @@
    <br class="clear-both">
    <% end %>
    <% content_for :left_col do %>
-      <%=render :partial=>'sidemenu'%>
+       <%=render :partial=>'sidemenu' %>
    <% end %>
    <% content_for :middle_col do %>
      <div class="box">
-    <h3 class="yellow"><%= t :edit_article %></h3>
+    <h3 class="yellow"><%=  t("edit_"+@kind) %></h3>
     <div class="box-container">
-<% form_for(@article) do |f| %>
+<% form_for(@article,:html=>{:multipart=>true}) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -31,7 +31,7 @@
   </p>
   <p>
     <%= f.label :image %><br />
-    <%= f.text_field :image %>
+    <%= f.file_field :image %>
   </p>
   <p>
     <%= f.label :intro %><br />
