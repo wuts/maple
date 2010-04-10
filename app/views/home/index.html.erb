@@ -1,59 +1,38 @@
  <div id="headline">
     <h1>» 中心要闻</h1>
     <div id="featured" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+      <% i=1 %>
         <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
-            <li id="nav-fragment-1" class="ui-tabs-nav-item ui-corner-top ui-state-default"><a href="#fragment-1"><img alt="" src="/application/assets/img/featured/image1-small.jpg"><span>世界十大最壮观的未来环保建筑设计</span></a></li>
-            <li id="nav-fragment-2" class="ui-tabs-nav-item ui-corner-top ui-state-default"><a href="#fragment-2"><img alt="" src="/application/assets/img/featured/image2-small.jpg"><span>“未枯绸缪”应对长江缺水</span></a></li>
-            <li id="nav-fragment-3" class="ui-tabs-nav-item ui-corner-top ui-tabs-selected ui-state-active"><a href="#fragment-3"><img alt="" src="/application/assets/img/featured/image3-small.jpg"><span>首届曹妃甸论坛举行市长早餐会</span></a></li>
-            <li id="nav-fragment-4" class="ui-tabs-nav-item ui-corner-top ui-state-default"><a href="#fragment-4"><img alt="" src="/application/assets/img/featured/image4-small.jpg"><span>中国可持续消费和生产圆桌会议在北京举行</span></a></li>
-        </ul>
+      <% @featured_news.each do |news| %>
 
-        <!-- First Content -->
-        <div style="" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="fragment-1">
-            <img alt="" src="/application/assets/img/featured/image1.jpg">
+    
+            <li id="nav-fragment-<%= i %>" class="ui-tabs-nav-item ui-corner-top ui-state-default"><%= link_to image_tag(news.image.url(:thumb)),"#fragment-#{i}" %><span><%= news.title %></span></li>
+     
+             
+       <% i+=1 %>
+      <% end %>
+       </ul>
+      	<% j=1 %>
+      <% @featured_news.each do |news| %>
+
+       <div style="" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="fragment-<%= j %>"
+          <%= image_tag news.image.url %>
             <div class="info">
-                <h2><a href="#">世界十大最壮观的未来环保建筑设计</a></h2>
-                <p>这些看上去炫目壮观的建筑设计，不是来自外星球的建筑，也不是科幻小说中才会出现的超现实理念，而是科学家们正在致力于打造的未来环保建筑设计。据国外媒体报道，近期，世界顶级的科学家、环保主义者和建筑大师，评出了世界10大最壮观的环保建筑设计：....<a href="#">更多</a></p>
-<a href="#">            </a></div>
-<a href="#">        </a></div>
-
-<a href="#">        <!-- Second Content -->
-        </a><div style="" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="fragment-2">
-<a href="#">            <img alt="" src="/application/assets/img/featured/image2.jpg">
-            </a><div class="info">
-<a href="#">                </a><h2><a href="#">“未枯绸缪”应对长江缺水</a></h2>
-                <p>“长江有可能越来越‘渴’！”在最近由上海院士中心主办的长江水资源专题研讨会上，河口海岸学家陈吉余院士向记者吐露担忧。面对长江常年水位逐步下降的趋势，....<a href="#">更多</a></p>
-            </div>
-        </div>
-
-        <!-- Third Content -->
-        <div style="" class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="fragment-3">
-            <img alt="" src="/application/assets/img/featured/image3.jpg">
-            <div class="info">
-                <h2><a href="#">首届曹妃甸论坛举行市长早餐会</a></h2>
-                <p>瑞典环境部可持续发展城市协会专家、瑞典SWECO公司总规划题朗哈根发表《共生城市的概念》演讲....<a href="#">更多</a></p>
-            </div>
-        </div>
-
-        <!-- Fourth Content -->
-        <div style="" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="fragment-4">
-            <img alt="" src="/application/assets/img/featured/image4.jpg">
-            <div class="info">
-                <h2><a href="#">中国可持续消费和生产圆桌会议在北京举行</a></h2>
-                <p>2006年5月26日，由欧洲委员会、联合国环境规划署和中国国家环境保护总局共同主办的“中国可持续消费和生产圆桌会议”在北京举行。此次会议的主要议题是：中国与欧洲国家之间就循环经济的概念与马拉喀什进程(2003年联合国马拉喀什会议上制定的可持续消费和生产十年发展进程)的联系、废物综合管理、环境标志、可持续采购、可持续产品、可持续建筑物等方面进行交流....<a href="#">更多</a></p>
-            </div>
-        </div>
-
+                <h2><a href="#"><%= news.title %></a></h2>
+                <p><%= news.title %>....<a href="#">更多</a>
+          </div>
+       </div>
+       <% j+=1 %>
+      <% end %>
     </div>
 </div>
 
 <div class="float-left width-three-quaters">
     <h2>最新文章</h2>
 
-    <div class="article_img"><img alt="" src="/application/assets/img/article/hj1.jpg"></div>
-    <div class="article_body">
-        <%= render :partial=>'articles/article_list',:collection=>@articles,:as=>:article,:spacer_template=>'shared/spacer' %>
-    </div>
+   
+     <%= render :partial=>'articles/article_list',:collection=>@articles,:as=>:article,:spacer_template=>'shared/spacer' %>
+   
     <div class="clear-both"></div>
             <p></p>
     </div>

@@ -11,9 +11,8 @@
      <div class="box">
     <h3 class="yellow"><%= t("add_"+@kind) %></h3>
     <div class="box-container">
-<% form_for(@article,:html=>{:multipart=>true}) do |f| %>
+<% form_for(@article,:url=>{:action=>"create"},:html=>{:multipart=>true}) do |f| %>
   <%= f.error_messages %>
-
 
   <p>
     <%= f.label t :title %><br />
@@ -43,6 +42,10 @@
   <p>
     <%= f.label t :status %><br />
     <%= f.select :status,[["live","live"],["draft","draft"],["featured","featured"]] %>
+  </p>
+  <p>
+    <%= f.label :featured %><br />
+    <%= f.select :featured,[["No","0"],["Yes","1"]] %>
   </p>
    <p class="hidden">
     <%= f.label t :kind %><br />
