@@ -105,10 +105,10 @@ div#content {padding-top:25px;}
     div.full-col {width:963px !important; margin-right:0px !important;}
 
     /** list links **/
-    ul.list-links, div#to-do-list ul {width:223px; margin-left:-10px; margin-top:-5px;}
+    ul.list-links, div#to-do-list ul {width:223px; margin-left:-10px; margin-top:-5px;list-style:none;}
     ul.list-links li {border-bottom:1px dotted #d6d8d9;}
-    ul.list-links li a {padding:8px 3px 6px 20px; display:block; background:url(../../img/admin/link-arrow-regular.gif) no-repeat 10px 10px #fff; color:#5c6467; text-decoration:none;}
-    ul.list-links li a:hover, ul.list-links li.selected a:hover {background:url(../../img/admin/link-arrow-hover.gif) no-repeat 10px 10px #fafae9; color:#000;}
+    ul.list-links li a {padding:8px 3px 6px 20px; display:block; background:url(/images/link-arrow-regular.gif) no-repeat 12px 12px #fff; color:#5c6467; text-decoration:none;}
+    ul.list-links li a:hover, ul.list-links li.selected a:hover {background:url(/images/link-arrow-hover.gif) no-repeat 10px 10px #fafae9; color:#000;}
         ul.list-links li ul {background:#fcfbf2 !important; padding-left:10px; padding-top:10px; width:213px; font-size:0.9em;}
         ul.list-links li ul li {border-bottom:none;}
         ul.list-links li ul li a {background:none; padding:5px 3px 5px 20px !important;}

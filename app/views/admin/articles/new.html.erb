@@ -16,20 +16,20 @@
 
 
   <p>
-    <%= f.label t(:title) %><br />
+    <%= f.label t :title %><br />
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :slug %><br />
+    <%= f.label t :slug %><br />
     <%= f.text_field :slug %>
   </p>
   <p>
-    <%= f.label :category_id %><br />
+    <%= f.label t :category_id %><br />
     <%=f.collection_select :category_id,Category.in_zh_CN,:id,:name,{:prompt=>true} %>
 
   </p>
   <p>
-    <%= f.label :image %><br />
+    <%= f.label t :image %><br />
     <%= f.file_field :image %>
   </p>
   <p>
@@ -37,19 +37,19 @@
     <%= f.text_field :intro %>
   </p>
   <p>
-    <%= f.label :body %><br />
+    <%= f.label t :body %><br />
     <%= f.text_area :body %>
   </p>
   <p>
-    <%= f.label :status %><br />
-    <%= f.select :status,[["select_status","please select status"],["live","live"],["draft","draft"],["featured","featured"]] %>
+    <%= f.label t :status %><br />
+    <%= f.select :status,[["live","live"],["draft","draft"],["featured","featured"]] %>
   </p>
    <p class="hidden">
-    <%= f.label :kind %><br />
-    <%= f.select :kind,[["select_kind","please select kind"],["news","news"],["article","article"],["bulletin","bulletin"]] %>
+    <%= f.label t :kind %><br />
+    <%= f.select :kind,[["select_kind","please select kind"],["news","news"],["article","article"],["bulletin","bulletin"],["page","page"]] %>
   </p>
    <p class="hidden">
-    <%= f.label :language_id %><br />
+    <%= f.label t :language_id %><br />
     <%=f.collection_select :language_id,Language.all,:id,:name,{:prompt=>true} %>
    </p>
 

@@ -19,10 +19,7 @@
     <%= f.label :category_id %><br />
    	<%=f.collection_select :category_id,Category.all,:id,:name,{:prompt=>true} %>
   </p>
-  <p>
-    <%= f.label :attachment %><br />
-    <%= f.text_field :attachment %>
-  </p>
+ 
   <p>
     <%= f.label :intro %><br />
     <%= f.text_field :intro %>

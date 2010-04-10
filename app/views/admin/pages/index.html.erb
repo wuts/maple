@@ -1,28 +1,60 @@
 <h1>Listing pages</h1>
+<% content_for :content_top do %>
+   <h2><%= :pages %></h2>
+   <br class="clear-both">
+   <% end %>
+   <% content_for :left_col do %>
+      <%=render :partial=>'sidemenu' %>
+   <% end %>
+   <% content_for :middle_col do %>
+    <div class="box">
+    <h3 class="yellow"><%= t(:list_pages) %></h3>
+    <div class="box-container">
+      <table border="0" class="table-list">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" value="" name="action_to_all"></th>
+                        <th class="width-40">title</th>
+                        <th class="width-10">Date</th>
+                        <th class="width-5">Status</th>
+                        <th class="width-10"><span>Actions</span></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="6">
+                            <div class="inner">
+    </div>
+                        </td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                       <% @pages.each do |page| %>
+                         <tr>
+                            <td><input type="checkbox" value="4" name="action_to[]"></td>
+                            <td><%= page.title %></td>
+                            <td><%= page.created_at %></td>
+                            <td><%= page.status %></td>
+                            <td><%= link_to t(:show),admin_page_path(page),:method=>:get %>&nbsp;|&nbsp;<%= link_to t(:edit),edit_admin_page_path(page)+"&k="+@kind %>&nbsp;|&nbsp;<%= link_to t(:delete),new_admin_page_path %>
+                                                       </td></tr>
+                        <% end %>
+                                    </tbody>
+            </table>
 
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Title</th>
-    <th>Body</th>
-    <th>Status</th>
-    <th>Language</th>
-  </tr>
 
-<% @pages.each do |page| %>
-  <tr>
-    <td><%=h page.id %></td>
-    <td><%=h page.title %></td>
-    <td><%=h page.body %></td>
-    <td><%=h page.status %></td>
-    <td><%=h page.language_id %></td>
-    <td><%= link_to 'Show', page %></td>
-    <td><%= link_to 'Edit', edit_page_path(page) %></td>
-    <td><%= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+
+                    <button class="confirm" value="delete" name="btnAction" type="submit">
+                <span>
+                    Delete              </span>
+            </button>
+
+
+
+                    <button value="publish" name="btnAction" type="submit">
+                <span>
+                    Publish             </span>
+            </button>
+
+    </div>
+    </div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New page', new_page_path %>

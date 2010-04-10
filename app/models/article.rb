@@ -12,6 +12,6 @@ class Article < ActiveRecord::Base
   named_scope :draft,:conditions=>{:status=>'draft'},:limit=>10,:order=>'created_at DESC'
   named_scope :featured,:conditions=>{:status=>'featured'},:limit=>4,:order=>'created_at DESC'
   named_scope :recent,lambda{{:conditions=>['created_at>?',3.day.ago]}}
-  named_scope :news,:conditions=>{:type=>'news'},:limit=>10,:order=>'created_at DESC'
-  named_scope :posts,:conditions=>{:type=>'posts'},:limit=>10,:order=>'created_at DESC'
+
+
 end

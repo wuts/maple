@@ -1,5 +1,5 @@
 class Admin::ArticlesController < Admin::AdminController
-
+ 
   def index
     @kind=params[:k]
     @articles = Article.all
