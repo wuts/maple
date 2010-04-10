@@ -3,7 +3,11 @@ class Article < ActiveRecord::Base
   belongs_to :category
   belongs_to :language
   has_many :comments,:dependent=>:destroy
-  has_attached_file :image,:style=>{ :large=>'600x400>',:medium=>'300x300>',:thumb=>'100x100>' }
+  has_attached_file :image,
+                    :content_type => ['image/jpeg', 'image/png', 'image/pjpeg', 'image/x-png'],
+                    :style=>{ :large=>'600x400>',:thumb=>'132x85>' },
+                    :default_url => "/system/images/defaults/:style_missing.jpg"
+
   accepts_nested_attributes_for :comments,:reject_if=>proc{|attributes| atrributes['author'].blank? }
   validates_presence_of :title,:language_id,:category_id
   validates_attachment_presence :image
@@ -14,5 +18,7 @@ class Article < ActiveRecord::Base
   named_scope :recent,lambda{{:conditions=>['created_at>?',3.day.ago]}}
   named_scope :news,:conditions=>{:type=>'news'},:limit=>10,:order=>'created_at DESC'
   named_scope :posts,:conditions=>{:type=>'posts'},:limit=>10,:order=>'created_at DESC'
+  
+  named_scope :featured_news,:conditions=>{ :featured=>1,:kind=>'news'}
     
 end
