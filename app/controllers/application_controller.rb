@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password,:password_confirmation
 
 
-
   def default_url_options(options={})
     logger.debug "default_url_options is passed options: #{options.inspect}\n"
     { :locale => I18n.locale }
@@ -22,5 +21,6 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale=params[:locale]
     @locale=I18n.locale
+    @language_id=Language.find_by_code(@locale)
   end
 end

@@ -42,6 +42,13 @@
   articles: "文章列表"
   change_language: "改变语言"
 
+   #Home page
+  featured_news: "中心要闻"
+  most_new_posts: "最新文章"
+  login: "登录"
+  hot_posts: "热门文章"
+  links: "友情链接"
+
   date:
     formats:
       default: "%Y-%m-%d"

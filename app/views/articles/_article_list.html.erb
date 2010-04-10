@@ -1,9 +1,7 @@
 
  <div class="article_img"><%= image_tag article.image.url(:thumb) %></div>
  <div class="article_body">
-<h3>
-  <%= link_to h(article.title),article %>
-</h3>
+<h3> <%= link_to h(article.title),article %></h3>
   <span>Category:</span>  <%=h article.category.name %> <span>Created at:</span><span><%= article.created_at %></span>
 <p>
   <%=h article.intro %>

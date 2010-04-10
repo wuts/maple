@@ -8,9 +8,6 @@ class Admin::ArticlesController < Admin::AdminController
     @draft_articles=Article.draft
     @recent_articles=Article.recent
    
-   
-   
-    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @articles }
@@ -60,7 +57,7 @@ class Admin::ArticlesController < Admin::AdminController
   def create
 
     @article = Article.new(params[:article])
-    @kind=params[:k] || 'news'
+   
     respond_to do |format|
       if @article.save
         flash[:notice] = 'Article was successfully created.'

@@ -12,7 +12,7 @@
    */
 
 #featured{
-	width:970px;
+	width:976px;
 	position:relative;
 	border:5px solid #ccc;
 	height:385px; overflow:hidden;
@@ -52,7 +52,7 @@
 	background:#f2f2f2;
 }
 #featured li.ui-tabs-selected{
-	background:url('../../img/featured/selected-item.gif') top left no-repeat;
+	background:url('/images/selected-item.gif') top left no-repeat;
 }
 #featured ul.ui-tabs-nav li.ui-tabs-selected a{
 	background:#ccc;
@@ -64,8 +64,12 @@
 #featured .ui-tabs-panel .info{
 	position:absolute;
 	bottom:0; left:0;
+	width:600px;
 	height:70px;
-	background: url('../../img/featured/transparent-bg.png');
+	background: url('/images/transparent-bg.png');
+}
+#featured .ui-tabs-panel .info p{
+  
 }
 #featured .ui-tabs-panel .info a.hideshow{
 	position:absolute; font-size:11px; font-family:Verdana; color:#f0f0f0; right:10px; top:-20px; line-height:20px; margin:0; outline:none; background:#333;

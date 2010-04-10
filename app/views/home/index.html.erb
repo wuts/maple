@@ -1,13 +1,11 @@
  <div id="headline">
-    <h1>» 中心要闻</h1>
+    <h2>»<%= t :featured_news %></h2>
     <div id="featured" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
       <% i=1 %>
         <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
       <% @featured_news.each do |news| %>
-
     
-            <li id="nav-fragment-<%= i %>" class="ui-tabs-nav-item ui-corner-top ui-state-default"><%= link_to image_tag(news.image.url(:thumb)),"#fragment-#{i}" %><span><%= news.title %></span></li>
-     
+            <li id="nav-fragment-<%= i %>" class="ui-tabs-nav-item ui-corner-top ui-state-default"><%= link_to image_tag(news.image.url(:thumb))+"<span>#{news.title}</span>","#fragment-#{i}" %></li>
              
        <% i+=1 %>
       <% end %>
@@ -19,7 +17,7 @@
           <%= image_tag news.image.url %>
             <div class="info">
                 <h2><a href="#"><%= news.title %></a></h2>
-                <p><%= news.title %>....<a href="#">更多</a>
+                <p><%= news.intro %>....<a href="#">更多</a></p>
           </div>
        </div>
        <% j+=1 %>
@@ -28,10 +26,9 @@
 </div>
 
 <div class="float-left width-three-quaters">
-    <h2>最新文章</h2>
+    <h2><%= t :most_new_posts %></h2>
 
-   
-     <%= render :partial=>'articles/article_list',:collection=>@articles,:as=>:article,:spacer_template=>'shared/spacer' %>
+     <%= render :partial=>'articles/article_list',:collection=>@articles,:as=>:article %>
    
     <div class="clear-both"></div>
             <p></p>
@@ -41,7 +38,7 @@
 
 <div id="sidebar">
     <div class="boxed" id="login">
-        <h2 class="title">用户登录</h2>
+        <h2 class="title"><%= t :login %></h2>
         <div class="content">
                                 <form accept-charset="utf-8" id="login_small" method="post" action="http://www.wutangsheng.cn/users/login">
 <div style="width: 15em;" class="float-left">
@@ -65,9 +62,9 @@
         </div>
     </div>
     <div class="boxed" id="updates">
-        <h2 class="title">热门文章</h2>
+        <h2 class="title"><%= t :hot_posts %></h2>
         <div class="content">
-                                <div id="host-posts">
+                                <div id="hot-posts">
                 <ul><li><a href="http://www.wutangsheng.cn/news/2010/04/diwei">个人、单位和民间组织的国际环境法律地位问题</a></li><li><a href="http://www.wutangsheng.cn/news/2010/04/shuiquan">论水权体系和水市场</a></li><li><a href="http://www.wutangsheng.cn/news/2010/04/gaige">新西兰水资源管理与环境政策改革</a></li><li><a href="http://www.wutangsheng.cn/news/2010/04/energy">能源法：立法助解能源之结</a></li></ul>
             </div>
 
@@ -76,7 +73,7 @@
     <div class="boxed" id="partners">
         <div id="navigation">
 
-            <h2 class="title">友情链接</h2>
+            <h2 class="title"><%= t :links %></h2>
             <ul>
                         <li><a 2="" 1="=&gt;" 0="target" href="http://www.fudan.edu.cn/">复旦大学</a></li>
                         <li><a 2="" 1="=&gt;" 0="target" href="http://www.queensu.ca">加拿大女王大学</a></li>

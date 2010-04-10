@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
   has_many :comments,:dependent=>:destroy
   has_attached_file :image,
                     :content_type => ['image/jpeg', 'image/png', 'image/pjpeg', 'image/x-png'],
-                    :style=>{ :large=>'600x400>',:thumb=>'132x85>' },
+                    :styles=>{ :large=>"600x400>",:thumb=>"132x85>" },
                     :default_url => "/system/images/defaults/:style_missing.jpg"
 
   accepts_nested_attributes_for :comments,:reject_if=>proc{|attributes| atrributes['author'].blank? }
@@ -17,10 +17,12 @@ class Article < ActiveRecord::Base
   named_scope :featured,:conditions=>{:status=>'featured'},:limit=>4,:order=>'created_at DESC'
   named_scope :recent,lambda{{:conditions=>['created_at>?',3.day.ago]}}
 
-  named_scope :news,:conditions=>{:type=>'news'},:limit=>10,:order=>'created_at DESC'
-  named_scope :posts,:conditions=>{:type=>'posts'},:limit=>10,:order=>'created_at DESC'
+  named_scope :news,:conditions=>{:kind=>'news'}
+  named_scope :articles,:conditions=>{:kind=>'articles'}
+  named_scope :language,lambda{|language_id|{:conditions=>['language_id=?',language_id]}}
+  named_scope :featured_news,:conditions=>{ :featured=>1,:kind=>'news'}
 
-  named_scope :featured_news,:conditions=>{ :status=>'featured',:kind=>'news'}
+ 
 
 
 end

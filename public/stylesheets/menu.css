@@ -5,7 +5,7 @@ ul.topnav {
     float: left;
     width: 100%;
     background: #222;
-    font-size: 1.2em;
+    font-size: 1.0em;
     background: url(/images/topnav_bg.gif) repeat-x;
 }
 ul.topnav li {
