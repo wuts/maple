@@ -1,0 +1,51 @@
+#!/bin/bash
+git add    db/migrate/20100406123435_add_image_columns_to_article.rb
+git add    db/migrate/20100406140510_create_bulletins.rb
+git add    db/migrate/20100406141550_create_news.rb
+git add    public/system/
+git add    test/fixtures/bulletins.yml
+git add    test/functional/admin/bulletin_controller_test.rb
+git add    test/functional/admin/news_controller_test.rb
+git add    test/functional/bulletins_controller_test.rb
+git add    test/unit/bulletin_test.rb
+git add    test/unit/helpers/admin/bulletin_helper_test.rb
+git add    test/unit/helpers/admin/news_helper_test.rb
+git add    test/unit/helpers/bulletins_helper_test.rb
+git add    vendor/plugins/paperclip/
+	public/images/bg-textbox.gif
+#	public/images/bg-toplevel-hover.gif
+#	public/images/bg-toplevel-hover.png
+#	public/images/bg-toplevel.gif
+#	public/images/bg-topnav-mask.gif
+#	public/images/bg_tableRow.gif
+#	public/images/bt-login.gif
+#	public/images/bt-send-form.gif
+#	public/images/error.png
+#	public/images/icon-blue-arrow.gif
+#	public/images/icon-calendar.gif
+#	public/images/icon-confirm.gif
+#	public/images/icon-delete-message.gif
+#	public/images/icon-delete.gif
+#	public/images/icon-edit.gif
+#	public/images/icon-error.gif
+#	public/images/icon-greet-user.gif
+#	public/images/icon-messages.gif
+#	public/images/icon-quick-send-message.gif
+#	public/images/input-required.png
+#	public/images/link-arrow-hover.gif
+#	public/images/link-arrow-regular.gif
+#	public/images/notice.png
+#	public/images/ql-databases.gif
+#	public/images/ql-design.gif
+#	public/images/ql-media.gif
+#	public/images/ql-messages.gif
+#	public/images/ql-options.gif
+#	public/images/ql-paths.gif
+#	public/images/ql-photos.gif
+#	public/images/ql-settings.gif
+#	public/images/ql-users.gif
+#	public/images/submenuhover.gif
+#	public/images/success.png
+#	public/images/sunny.png
+#	public/system/images/4/
+
