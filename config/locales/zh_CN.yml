@@ -4,9 +4,9 @@
 "zh_CN":
   submit: "提交"
   login:  "登录"
+  create: "新建"
   username: "用户名"
   logout: "退出"
-  create: "创建"
   password: "密码"
   save: "保存"
   update: "更新"
@@ -20,6 +20,7 @@
   body: "内容"
   image: "图像"
   status: "状态"
+  featured: "特写"
   kind: "类别"
   language_id: "语言"
   add_article: "添加新文章"
