@@ -7,7 +7,7 @@ class Admin::ArticlesController < Admin::AdminController
     @live_articles=Article.live
     @draft_articles=Article.draft
     @recent_articles=Article.recent
-   
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @articles }
@@ -57,14 +57,14 @@ class Admin::ArticlesController < Admin::AdminController
   def create
 
     @article = Article.new(params[:article])
-   
+    @kind=params[:k] || 'news'
     respond_to do |format|
       if @article.save
         flash[:notice] = 'Article was successfully created.'
         format.html { redirect_to(@article) }
         format.xml  { render :xml => @article, :status => :created, :location => @article }
       else
-        
+        @kind=params[:k] || 'news'
         format.html { render :action => "new" }
         format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }
       end
