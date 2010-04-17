@@ -53,7 +53,7 @@
   </p>
    <p class="hidden">
     <%= f.label t :language_id %><br />
-    <%=f.collection_select :language_id,Language.all,:id,:name,{:prompt=>true} %>
+    <%=f.hidden_field :language_id %>
    </p>
 
   <p>

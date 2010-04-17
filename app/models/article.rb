@@ -19,10 +19,10 @@ class Article < ActiveRecord::Base
 
   named_scope :news,:conditions=>{:kind=>'news'}
   named_scope :articles,:conditions=>{:kind=>'articles'}
+  named_scope :hot_articles,:conditions=>{:kind=>'articles'},:order=>'clicks DESC'
   named_scope :language,lambda{|language_id|{:conditions=>['language_id=?',language_id]}}
   named_scope :featured_news,:conditions=>{ :featured=>1,:kind=>'news'}
 
- 
-
+  named_scope :hotest,:limit=>10,:order=>'clicks DESC'
 
 end

@@ -1,11 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :news
 
   map.resources :news
 
   map.resources :bulletins
 
-  map.resources :news
 
   map.resources :pages
 
@@ -36,8 +34,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resource :sessions
   map.root :controller=> 'home',:action=> 'index'
+  map.home '/home', :controller => 'home', :action => 'index'
   map.signup 'signup',:controller=>'users',:action=>'new'
   map.register '/register', :controller => 'users', :action => 'create'
+
   map.login 'login',:controller=>'sessions',:action=>'new'
   map.logout 'logout',:controller=>'sessions',:action=>'destroy'
   map.activate '/activate/:activation_code',:controller=>'users',:action=>'activate',:activation_code=>nil

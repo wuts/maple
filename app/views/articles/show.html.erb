@@ -4,36 +4,36 @@
 <p>  <%= comment.comment %> </p>
 <% end %>
 
-<h1>New comment</h1>
+<h1><%= t :new_comment %></h1>
 
 <% form_for [@article,Comment.new] do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :id %><br />
+  <p class="hidden">
+    <%= f.label t :id %><br />
     <%= f.text_field :id %>
   </p>
   <p>
-    <%= f.label :author %><br />
+    <%= f.label t :author %><br />
     <%= f.text_field :author %>
   </p>
   <p>
-    <%= f.label :email %><br />
+    <%= f.label t :email %><br />
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :comment %><br />
+    <%= f.label t :comment %><br />
     <%= f.text_area :comment %>
   </p>
-  <p>
-    <%= f.label :article_id %><br />
+  <p class="hidden">
+    <%= f.label t :article_id %><br />
     <%= f.text_field :article_id %>
   </p>
-  <p>
-    <%= f.label :parent_id %><br />
+  <p class="hidden" >
+    <%= f.label t :parent_id %><br />
     <%= f.text_field :parent_id %>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit t(:create) %>
   </p>
 <% end %>

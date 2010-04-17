@@ -4,13 +4,13 @@
       <% i=1 %>
         <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
       <% @featured_news.each do |news| %>
-    
+
             <li id="nav-fragment-<%= i %>" class="ui-tabs-nav-item ui-corner-top ui-state-default"><%= link_to image_tag(news.image.url(:thumb))+"<span>#{news.title}</span>","#fragment-#{i}" %></li>
-             
+
        <% i+=1 %>
       <% end %>
        </ul>
-      	<% j=1 %>
+        <% j=1 %>
       <% @featured_news.each do |news| %>
 
        <div style="" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="fragment-<%= j %>"
@@ -29,7 +29,7 @@
     <h2><%= t :most_new_posts %></h2>
 
      <%= render :partial=>'articles/article_list',:collection=>@articles,:as=>:article %>
-   
+
     <div class="clear-both"></div>
             <p></p>
     </div>
@@ -40,14 +40,14 @@
     <div class="boxed" id="login">
         <h2 class="title"><%= t :login %></h2>
         <div class="content">
-                                <form accept-charset="utf-8" id="login_small" method="post" action="http://www.wutangsheng.cn/users/login">
+          <form accept-charset="utf-8" id="login_small" method="post" action="http://www.wutangsheng.cn/users/login">
 <div style="width: 15em;" class="float-left">
-    <label for="email">E-mail</label>
+    <label for="email"><%= t :email %></label>
     <input type="text" maxlength="120" name="email" id="email">
 
     <div class="spacer-bottom"></div>
 
-    <label for="password">Password</label>
+    <label for="password"><%= t :password %></label>
     <input type="password" maxlength="20" name="password" id="password">
 </div>
 

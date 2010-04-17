@@ -21,10 +21,22 @@
   image: "图像"
   status: "状态"
   kind: "类别"
+  live: "发布"
+  draft: "草稿"
+  yeam: "是"
+  nope: "否"
+  featured: "特写"
   language_id: "语言"
   add_article: "添加新文章"
   list_articles: "文章列表"
   edit_article: "编辑文章"
+  select_status: "请选择状态"
+  select_kind: "请选择类别"
+
+  news: "新闻"
+  article: "文章"
+  bulletin: "公告"
+  page: "页面"
   list_news: "新闻列表"
   add_news: "添加新闻"
   edit_news: "编辑新闻"
@@ -42,12 +54,18 @@
   articles: "文章列表"
   change_language: "改变语言"
 
-   #Home page
+  #Home page
+
   featured_news: "中心要闻"
   most_new_posts: "最新文章"
   login: "登录"
   hot_posts: "热门文章"
   links: "友情链接"
+
+  new_comment: "发表评论"
+  author: "作者"
+  email: "电子邮件"
+  comment: "评论内容"
 
   date:
     formats:

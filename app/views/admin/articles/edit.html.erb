@@ -18,19 +18,19 @@
     <%= f.hidden_field :id %>
   </p>
   <p>
-    <%= f.label :title %><br />
+    <%= f.label t :title %><br />
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :slug %><br />
+    <%= f.label t :slug %><br />
     <%= f.text_field :slug %>
   </p>
   <p>
-    <%= f.label :category_id %><br />
+    <%= f.label t :category_id %><br />
     <%=f.collection_select :category_id,Category.all,:id,:name,{:prompt=>true} %>
   </p>
   <p>
-    <%= f.label :image %><br />
+    <%= f.label t :image %><br />
     <%= f.file_field :image %>
   </p>
   <p>
@@ -38,27 +38,27 @@
     <%= f.text_field :intro %>
   </p>
   <p>
-    <%= f.label :body %><br />
+    <%= f.label t :body %><br />
     <%= f.text_area :body %>
   </p>
-   <p>
-    <%= f.label :language_id %><br />
-    <%=f.collection_select :language_id,Language.all,:id,:name,{:prompt=>true} %>
+   <p class="hidden">
+    <%= f.label t :language_id %><br />
+    <%=f.hidden_field :language_id %>
   </p>
    <p>
-    <%= f.label :status %><br />
-    <%= f.select :status,[["select_status","please select status"],["live","live"],["draft","draft"],["featured","featured"]] %>
+    <%= f.label t :status %><br />
+    <%= f.select :status,[[t(:live),"live"],[t(:draft),"draft"]] %>
    </p>
    <p>
-    <%= f.label :featured %><br />
-    <%= f.select :featured,[["No","0"],["Yes","1"]] %>
+    <%= f.label t :featured %><br />
+    <%= f.select :featured,[[t(:nope),"0"],[t(:yeam),"1"]] %>
   </p>
-   <p>
-    <%= f.label :kind %><br />
-    <%= f.select :kind,[["select_kind","please select kind"],["news","news"],["article","article"],["bulletin","bulletin"],["page","page"]] %>
+   <p class="hidden">
+    <%= f.label t :kind %><br />
+    <%= f.select :kind,[[t(:select_kind),"please select kind"],[t(:news),"news"],[t(:article),"article"],[t(:bulletin),"bulletin"],[t(:page),"page"]] %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit t :update %>
   </p>
 <% end %>
  </div>
