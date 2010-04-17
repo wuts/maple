@@ -61,12 +61,25 @@
 
         </div>
     </div>
-    <div class="boxed" id="updates">
-        <h2 class="title"><%= t :hot_posts %></h2>
+    <div class="boxed" id="bulletins">
+        <h2 class="title"><%= t :bulletins %></h2>
         <div class="content">
-                                <div id="hot-posts">
-                <ul><li><a href="http://www.wutangsheng.cn/news/2010/04/diwei">个人、单位和民间组织的国际环境法律地位问题</a></li><li><a href="http://www.wutangsheng.cn/news/2010/04/shuiquan">论水权体系和水市场</a></li><li><a href="http://www.wutangsheng.cn/news/2010/04/gaige">新西兰水资源管理与环境政策改革</a></li><li><a href="http://www.wutangsheng.cn/news/2010/04/energy">能源法：立法助解能源之结</a></li></ul>
-            </div>
+                <div id="bulletins">
+                  <ul>
+                   <%= render :partial=>'articles/article_url',:collection=>@bulletins,:as=>:article %>
+                  </ul>
+              </div>
+
+        </div>
+    </div>
+    <div class="boxed" id="hot-articles">
+        <h2 class="title"><%= t :hot_articles %></h2>
+        <div class="content">
+                <div id="hot-articles">
+                  <ul>
+                   <%= render :partial=>'articles/article_url',:collection=>@hot_articles,:as=>:article %>
+                  </ul>
+              </div>
 
         </div>
     </div>

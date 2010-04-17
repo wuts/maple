@@ -18,11 +18,11 @@ class Article < ActiveRecord::Base
   named_scope :recent,lambda{{:conditions=>['created_at>?',3.day.ago]}}
 
   named_scope :news,:conditions=>{:kind=>'news'}
-  named_scope :articles,:conditions=>{:kind=>'articles'}
+  named_scope :articles,:conditions=>{:kind=>'article'}
 
-  named_scope :hot_articles,:conditions=>{:kind=>'articles'},:order=>'clicks DESC'
+  named_scope :hot_articles,:conditions=>{:kind=>'article'},:order=>'clicks DESC',:limit=>10
 
-  named_scope :bulletins,:conditions=>{:kind=>'bulletins'}
+  named_scope :bulletins,:conditions=>{:kind=>'bulletin'}
 
   named_scope :language,lambda{|language_id|{:conditions=>['language_id=?',language_id]}}
   named_scope :featured_news,:conditions=>{ :featured=>1,:kind=>'news'}

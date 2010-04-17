@@ -37,6 +37,7 @@
   news: "新闻"
   article: "文章"
   bulletin: "公告"
+  bulletins: "公告"
   page: "页面"
   list_news: "新闻列表"
   add_news: "添加新闻"
@@ -63,7 +64,7 @@
   featured_news: "中心要闻"
   most_new_posts: "最新文章"
   login: "登录"
-  hot_posts: "热门文章"
+  hot_articles: "热门文章"
   links: "友情链接"
 
   new_comment: "发表评论"

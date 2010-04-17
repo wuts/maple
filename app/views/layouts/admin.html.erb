@@ -23,11 +23,15 @@
         &nbsp;| &nbsp;<a href="">Edit profile</a>     &nbsp;| &nbsp;<a href="">Logout</a> <br>
         <small><a target="_blank" href="">View website</a></small>
     </p>
-
+    <div style="float:right;font-size:1.2em;">
+            <%= label_tag t(:change_language) %>
+            <%= select_tag :language_id,options_for_select([["English","English"],["简体中文","简体中文"]]) %>
+    </div>
     <br class="clear-both">
 </div>
  <div id="menu">
-    <%= render :partial=>"shared/admin_menu_#@locale" %>
+   <%= render :partial=>"shared/admin_menu_#@locale" %>
+
   </div>
   </div>
 
@@ -45,10 +49,7 @@
         <div id="footer">
 
           <div id="footer-top">
-            <div style="float:left;font-size:1.2em;">
-            <%= label_tag t(:change_language) %>
-            <%= select_tag :language_id,options_for_select([["English","English"],["简体中文","简体中文"]]) %>
-            </div>
+
 
            <div style="float:right;font-size:1.4em;">
               <%= t :site_name %>

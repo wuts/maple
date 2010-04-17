@@ -40,6 +40,7 @@ en:
   news: "news"
   article: "article"
   bulletin: "bulletin"
+  bulletins: "Bulletins"
   page: "page"
   list_news: "List News"
   add_news: "Add News"
@@ -49,7 +50,7 @@ en:
   featured_news: "Featured News"
   most_new_posts: "Most New Posts"
   login: "Login"
-  hot_posts: "Hot Posts"
+  hot_articles: "Hot Articles"
   links: "Links"
 
   new_comment: "New Comment"
