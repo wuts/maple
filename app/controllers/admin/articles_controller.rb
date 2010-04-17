@@ -3,7 +3,15 @@ class Admin::ArticlesController < Admin::AdminController
   def index
     @kind=params[:k] || 'news'
     @locale=params[:locale] || 'zh_CN'
-    @articles = Article.all
+    @language=Language.find_by_code(@locale)
+    @articles=Array.new
+    @language.articles.each do |article|
+       @articles.push(article) if article.kind==@kind
+    end
+
+    # @articles=Article.find(:all,:conditions=>['kind=?',@kind])
+
+
     @live_articles=Article.live
     @draft_articles=Article.draft
     @recent_articles=Article.recent
@@ -40,6 +48,8 @@ class Admin::ArticlesController < Admin::AdminController
     @default_status='live'
     @language=Language.find_by_code(@locale)
     @article = Article.new({:language_id=>@language.id,:kind=>@kind,:status=>@default_status})
+    @categories=@language.categories
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @admin_article }
