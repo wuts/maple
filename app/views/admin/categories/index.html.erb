@@ -1,24 +1,60 @@
-<h1>Listing categories</h1>
+<h1><%= t :list_categories%></h1>
+   <% content_for :content_top do %>
+   <h2><%= t :categories %></h2>
+   <br class="clear-both">
+   <% end %>
+   <% content_for :left_col do %>
+      <%=render :partial=>'sidemenu' %>
+   <% end %>
+   <% content_for :middle_col do %>
+    <div class="box">
+    <h3 class="yellow"><%= t('list_categories') %></h3>
+    <div class="box-container">
+      <table border="0" class="table-list">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" value="" name="action_to_all"></th>
+                        <th class="width-40"><%=t :name %></th>
+                        <th class="width-10"><%=t :created_at %></th>
+                        <th class="width-10"><span><%=t :action %></span></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="6">
+                            <div class="inner">
+    </div>
+                        </td>
+                    </tr>
+                </tfoot>
+                <tbody>
 
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Language</th>
-  </tr>
+                       <% @categories.each do |category| %>
+                         <tr>
+                            <td><input type="checkbox" value="4" name="action_to[]"></td>
+                            <td><%= category.name %></td>
+                            <td><%= category.created_at %></td>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%=h category.id %></td>
-    <td><%=h category.name %></td>
-    <td><%=h category.language.name %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+                            <td><%= link_to t(:show),admin_category_path(category),:method=>:get %>&nbsp;|&nbsp;<%= link_to t(:edit),edit_admin_category_path(category) %>&nbsp;|&nbsp;<%= link_to t(:delete),new_admin_category_path %>
+                                                       </td></tr>
+                        <% end %>
+                                    </tbody>
+            </table>
+
+
+
+                    <button class="confirm" value="delete" name="btnAction" type="submit">
+                <span>
+                    Delete              </span>
+            </button>
+
+
+
+                    <button value="publish" name="btnAction" type="submit">
+                <span>
+                    Publish             </span>
+            </button>
+
+    </div>
+    </div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New category', new_category_path %>

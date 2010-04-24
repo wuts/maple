@@ -1,13 +1,13 @@
 <ul class="topnav">
 
 
-  <li><%= link_to '新闻',new_admin_article_path+"&k=news" %></li>
-  <li><%= link_to '公告',new_admin_article_path+"&k=bulletin" %></li>
-  <li><%= link_to '文章',new_admin_article_path+"&k=article" %></li>
+  <li><%= link_to '新闻',admin_articles_path+"&k=news" %></li>
+  <li><%= link_to '公告',admin_articles_path+"&k=bulletin" %></li>
+  <li><%= link_to '文章',admin_articles_path+"&k=article" %></li>
 
 
 
-  <li><%= link_to '静态页面',new_admin_article_path+"&k=page" %></li>
-
+  <li><%= link_to '静态页面',admin_articles_path+"&k=page" %></li>
+  <li><%= link_to '目录',admin_categories_path %></li>
 
 </ul>

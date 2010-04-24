@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @language=Language.find_by_code(params[:locale])
+
+    @language=Language.find_by_code(params[:locale] || 'zh_CN')
     @articles=@language.articles.recent
     @featured_news=@language.articles.featured_news
     @hot_articles=@language.articles.hot_articles

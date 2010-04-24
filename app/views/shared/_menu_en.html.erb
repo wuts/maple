@@ -1,24 +1,24 @@
 <ul class="topnav">
-  <li><%= link_to 'Home' %></li>
-  <li><%= link_to 'About us' %>
+  <li><%= link_to 'Home','/home?locale=en' %></li>
+  <li><%= link_to 'About us','/page/aboutus?locale=en' %>
     <ul  id="about" class="subnav">
-       <li><%= link_to 'Background' %></li>
-       <li><%= link_to 'Goals' %></li>
-       <li><%= link_to 'Members' %></li>
-       <li><%= link_to 'Operational Mechanism' %></li>
+       <li><%= link_to 'Background','/page/background?locale=en' %></li>
+       <li><%= link_to 'Goals','/page/goals?locale=en' %></li>
+       <li><%= link_to 'Members','/page/members?locale=en' %></li>
+       <li><%= link_to 'Operational Mechanism','/page/operationalmechanism?locale=en' %></li>
   </ul></li>
-  <li><%= link_to 'Studies' %>
+  <li><%= link_to 'Studies','/page/studies?locale=en' %>
     <ul id="studies" class="subnav">
-      <li><%= link_to 'directions',@page %></li>
-      <li><%= link_to 'Core Member' %></li>
+      <li><%= link_to 'directions','/page/directions?locale=en' %></li>
+      <li><%= link_to 'Core Member','/page/coremember?locale=en' %></li>
 
-      <li><%= link_to 'Study Conditions' %></li>
-      <li><%= link_to 'Projects' %></li>
-      <li><%= link_to 'Achievement' %></li>
+      <li><%= link_to 'Study Conditions','/page/studyconditions?locale=en' %></li>
+      <li><%= link_to 'Projects','/page/projects?locale=en' %></li>
+      <li><%= link_to 'Achievement','/page/achievement?locale=en' %></li>
     </ul></li>
-   <li><%= link_to 'Communication' %></li>
-   <li><%= link_to 'Funding' %></li>
- <li><%= link_to 'Circumstance and Life' %></li>
+   <li><%= link_to 'Communication','/page/communication?locale=en' %></li>
+   <li><%= link_to 'Funding','/page/funding?locale=en' %></li>
+ <li><%= link_to 'Circumstance and Life','/page/circumstanceandlife?locale=en' %></li>
 
-       <li><%= link_to 'Contact us' %></li>
+       <li><%= link_to 'Contact us','/page/contactus?locale=en' %></li>
 </ul>

@@ -28,5 +28,7 @@ class Article < ActiveRecord::Base
   named_scope :featured_news,:conditions=>{ :featured=>1,:kind=>'news'}
 
   named_scope :hotest,:limit=>10,:order=>'clicks DESC'
+  cattr_reader :per_page
+  @@per_page=10
 
 end

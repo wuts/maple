@@ -1,24 +1,34 @@
 <h1>New category</h1>
 
-<% form_for(@category) do |f| %>
+ <% content_for :content_top do %>
+   <h2><%= t :categories %></h2>
+   <br class="clear-both">
+   <% end %>
+   <% content_for :left_col do %>
+      <%=render :partial=>'sidemenu' %>
+   <% end %>
+   <% content_for :middle_col do %>
+     <div class="box">
+    <h3 class="yellow"><%= t("add_category") %></h3>
+    <div class="box-container">
+<% form_for(@category,:url=>{:action=>"create"}) do |f| %>
   <%= f.error_messages %>
 
- <p>
-    <%= f.label :id,nil,:style=>"display:none;" %><br />
-    <%= f.hidden_field :id %>
-  </p>
   <p>
-    <%= f.label :name %><br />
+    <%= f.label t :name %><br />
     <%= f.text_field :name %>
   </p>
 
+   <p class="hidden">
+    <%= f.label t :language_id %><br />
+    <%=f.hidden_field :language_id %>
+   </p>
+
   <p>
-    <%= f.label :language_id %><br />
-	<%=f.collection_select :language_id,Language.all,:id,:name,{:prompt=>true} %>  
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit t :create %>
   </p>
 <% end %>
-
+   </div>
+    </div>
+<% end %>
 <%= link_to 'Back', categories_path %>

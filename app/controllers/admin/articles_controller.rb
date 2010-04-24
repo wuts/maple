@@ -59,6 +59,9 @@ class Admin::ArticlesController < Admin::AdminController
   # GET /articles/1/edit
   def edit
     @kind=params[:k]
+    @locale=params[:locale] || 'zh_CN'
+    @language=Language.find_by_code(@locale)
+    @categories=@language.categories
     @article = Article.find(params[:id])
   end
 

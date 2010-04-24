@@ -1,24 +1,24 @@
 <ul class="topnav">
-  <li><%= link_to '首页' %></li>
-  <li><%= link_to '中心概况' %>
+  <li><%= link_to '首页','/home?locale=zh_CN' %></li>
+  <li><%= link_to '中心概况','/page/zxgk?locale=zh_CN' %>
     <ul  id="about" class="subnav">
-       <li><%= link_to '成立背景' %></li>
-       <li><%= link_to '宗旨目的' %></li>
-       <li><%= link_to '中心成员' %></li>
-       <li><%= link_to '运作机制' %></li>
+       <li><%= link_to '成立背景','/page/clbj?locale=zh_CN' %></li>
+       <li><%= link_to '宗旨目的','/page/zzmd?locale=zh_CN' %></li>
+       <li><%= link_to '中心成员','/page/zxcy?locale=zh_CN' %></li>
+       <li><%= link_to '运作机制','/page/yxjz?locale=zh_CN' %></li>
   </ul></li>
-  <li><%= link_to '学术研究' %>
+  <li><%= link_to '学术研究','/page/xsyj?locale=zh_CN' %>
     <ul id="studies" class="subnav">
-      <li><%= link_to '研究方向',@page %></li>
-      <li><%= link_to '研究骨干' %></li>
+      <li><%= link_to '研究方向','/page/yjfx?locale=zh_CN' %></li>
+      <li><%= link_to '研究骨干','/page/yjgg?locale=zh_CN' %></li>
 
-      <li><%= link_to '科研条件' %></li>
-      <li><%= link_to '科研项目' %></li>
-      <li><%= link_to '研究成果' %></li>
+      <li><%= link_to '科研条件','/page/kytj?locale=zh_CN' %></li>
+      <li><%= link_to '科研项目','/page/kyxm?locale=zh_CN' %></li>
+      <li><%= link_to '研究成果','/page/yjcg?locale=zh_CN' %></li>
     </ul></li>
-   <li><%= link_to '交流访问' %></li>
-   <li><%= link_to '协作平台' %></li>
- <li><%= link_to '环境与生活' %></li>
+   <li><%= link_to '交流访问','/page/jlfw?locale=zh_CN' %></li>
+   <li><%= link_to '协作平台','/page/xzpt?locale=zh_CN' %></li>
+ <li><%= link_to '环境与生活','/page/hjysh?locale=zh_CN' %></li>
 
-       <li><%= link_to '联系我们' %></li>
+       <li><%= link_to '联系我们','/page/lxwm?locale=zh_CN' %></li>
 </ul>

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
 
@@ -19,8 +20,9 @@ class ApplicationController < ActionController::Base
 
 
   def set_locale
-    I18n.locale=params[:locale]
+    I18n.locale=params[:locale] || 'zh_CN'
     @locale=I18n.locale
     @language_id=Language.find_by_code(@locale)
+    @locales_available ||= [["English", "en"], ["简体中文", "zh_CN"]]
   end
 end

@@ -9,6 +9,8 @@ class ArticlesController < ApplicationController
     @live_articles=Article.live
     @draft_articles=Article.draft
     @recent_articles=Article.recent
+
+    # @posts=Article.paginate :page=>params[:page],:order=>'created_at DESC'
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @articles }
@@ -20,6 +22,16 @@ class ArticlesController < ApplicationController
   def show
 
     @article = Article.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @article }
+    end
+  end
+
+# GET /articles/1.xml
+  def show_by_slug
+
+    @article = Article.find_by_slug(params[:slug])
 
     respond_to do |format|
       format.html # show.html.erb

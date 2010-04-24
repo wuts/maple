@@ -1,9 +1,10 @@
 <%= render :partial=>@article %>
 
+<% if @article.comments %>
 <% @article.comments.each do |comment| %>
 <p>  <%= comment.comment %> </p>
 <% end %>
-
+<% end%>
 <h1><%= t :new_comment %></h1>
 
 <% form_for [@article,Comment.new] do |f| %>

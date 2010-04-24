@@ -1,24 +1,33 @@
-<h1>Editing category</h1>
-
+<h1><%= t :edit_category %></h1>
+<% content_for :content_top do %>
+   <h2><%= t :categories %></h2>
+   <br class="clear-both">
+   <% end %>
+   <% content_for :left_col do %>
+       <%=render :partial=>'sidemenu' %>
+   <% end %>
+   <% content_for :middle_col do %>
+     <div class="box">
+    <h3 class="yellow"><%=  t("edit_category") %></h3>
+    <div class="box-container">
 <% form_for(@category) do |f| %>
   <%= f.error_messages %>
 
-   <p>
+  <p>
     <%= f.label :id,nil,:style=>"display:none;" %><br />
     <%= f.hidden_field :id %>
   </p>
   <p>
-    <%= f.label :name %><br />
+    <%= f.label t :name %><br />
     <%= f.text_field :name %>
   </p>
-    <p>
-    <%= f.label :language_id %><br />
-	<%=f.collection_select :language_id,Language.all,:id,:name,{:prompt=>true} %>  
-  </p>
+
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit  t('update') %>
   </p>
 <% end %>
-
+ </div>
+    </div>
+<% end %>
 <%= link_to 'Show', @category %> |
 <%= link_to 'Back', categories_path %>

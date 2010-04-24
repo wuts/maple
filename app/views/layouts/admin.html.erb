@@ -23,9 +23,14 @@
         &nbsp;| &nbsp;<a href="">Edit profile</a>     &nbsp;| &nbsp;<a href="">Logout</a> <br>
         <small><a target="_blank" href="">View website</a></small>
     </p>
-    <div style="float:right;font-size:1.2em;">
+        <div style="float:right;font-size:1.2em;">
+          <% form_tag request.path,:method=>:get do %>
             <%= label_tag t(:change_language) %>
-            <%= select_tag :language_id,options_for_select([["English","English"],["简体中文","简体中文"]]) %>
+            <%= select_tag "locale",
+                options_for_select(@locales_available,I18n.locale),
+                :onchange=>"this.form.submit();"
+            %>
+         <% end %>
     </div>
     <br class="clear-both">
 </div>

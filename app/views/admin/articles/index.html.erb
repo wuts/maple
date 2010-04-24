@@ -14,11 +14,11 @@
                 <thead>
                     <tr>
                         <th><input type="checkbox" value="" name="action_to_all"></th>
-                        <th class="width-40">title</th>
-                        <th class="width-10">category</th>
-                        <th class="width-10">Date</th>
-                        <th class="width-5">Status</th>
-                        <th class="width-10"><span>Actions</span></th>
+                        <th class="width-40"><%=t :title %></th>
+                        <th class="width-10"><%=t :category %></th>
+                        <th class="width-10"><%=t :created_at %></th>
+                        <th class="width-5"><%=t :status %></th>
+                        <th class="width-10"><span><%=t :action %></span></th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -30,7 +30,7 @@
                     </tr>
                 </tfoot>
                 <tbody>
-	
+
                        <% @articles.each do |article| %>
                          <tr>
                             <td><input type="checkbox" value="4" name="action_to[]"></td>

@@ -68,7 +68,7 @@ div#admin_header {padding-top:20px;}
 div#content {padding-top:25px;}
 
     /** main heading of the page **/
-    div#content-top {border-bottom:1px solid #bcbcb7; padding-bottom:8px; margin-bottom:15px;}
+    div#content-top {border-bottom:1px solid #bcbcb7; padding-bottom:12px; margin-bottom:15px;}
         div#content-top h2 {font-size:200%; font-weight:bold; margin:0 0 0 12px; float:left;}
         div#content-top h2 a { text-decoration:none;color:#373d40; }
         div#content-top a#topLink:hover {color:#333;}
