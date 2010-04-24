@@ -28,13 +28,11 @@
 <div class="float-left width-three-quaters">
     <h2><%= t :most_new_posts %></h2>
 
-     <%= render :partial=>'articles/article_list',:collection=>@articles,:as=>:article %>
+     <%= render :partial=>'articles/article_list',:collection=>@articles,:as=>:article,:spacer_template=>'shared/spacer' %>
 
     <div class="clear-both"></div>
-            <p></p>
+   <p></p>
     </div>
-
-
 
 <div id="sidebar">
     <div class="boxed" id="login">

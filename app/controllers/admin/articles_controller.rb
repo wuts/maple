@@ -77,6 +77,11 @@ class Admin::ArticlesController < Admin::AdminController
         format.html { redirect_to(@article) }
         format.xml  { render :xml => @article, :status => :created, :location => @article }
       else
+        @locale=params[:locale] || 'zh_CN'
+       
+        @language=Language.find_by_code(@locale)
+       
+        @categories=@language.categories
         @kind=params[:k] || 'news'
         format.html { render :action => "new" }
         format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }

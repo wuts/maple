@@ -98,6 +98,11 @@ img {
     color: #FFFFFF;
 }
 
+.article_title {
+    font-size:1.2em;
+    font-weight:bold;
+}
+
 .boxed .content {
     padding: 10px;
     overflow:hidden;
@@ -246,9 +251,10 @@ img {
   float:left;
   width:200px;
 }
-
-.article_img{float:left;width:200px;}
-.article_body{float:right;width:550px;margin-left:20px;padding-left:10px;padding-top:10px;}
+.post{margin-top:10px;margin-bottom:10px;}
+.summary{margin-top:10px;height:auto;}
+.article_img{float:left;width:130px;}
+.article_body{float:left;width:570px;margin-left:10px;padding-left:10px;padding-top:10px;}
 /* Content > Main > Example */
 
 #example {

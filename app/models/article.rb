@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
   has_many :comments,:dependent=>:destroy
   has_attached_file :image,
                     :content_type => ['image/jpeg', 'image/png', 'image/pjpeg', 'image/x-png'],
-                    :styles=>{ :large=>"600x400>",:thumb=>"132x85>" },
+                    :styles=>{ :large=>"600x400>",:medium=>"300x200",:thumb=>"132x85>" },
                     :default_url => "/system/images/defaults/:style_missing.jpg"
 
   accepts_nested_attributes_for :comments,:reject_if=>proc{|attributes| atrributes['author'].blank? }

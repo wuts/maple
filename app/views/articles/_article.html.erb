@@ -6,7 +6,7 @@
   <span>Category:</span>  <%=h article.category.name %> <span>Created at:</span><span><%= article.created_at %></span>
 </p>
 <p>
-  <%= image_tag article.image.url %>
+  <%= image_tag article.image.url(:medium) %>
 </p>
 <p>
   <%=h article.intro %>
