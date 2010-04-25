@@ -33,7 +33,7 @@ div#admin_header {padding-top:20px;}
     p#userbox a:hover {color:#fff;}
     p#userbox small {display:block; margin-top:5px; color:#8d9599; font-size:0.9em;}
 
-    div#top {margin-bottom:1.3em;}
+    div#top {height:40px;margin-bottom:1.3em;}
 
     /** menu **/
     ul#menu {float:left; width:100%; }
@@ -65,7 +65,7 @@ div#admin_header {padding-top:20px;}
 /** END OF HEADER **/
 
 /** CONTENT **/
-div#content {padding-top:25px;}
+div#content {padding-top:10px;}
 
     /** main heading of the page **/
     div#content-top {border-bottom:1px solid #bcbcb7; padding-bottom:12px; margin-bottom:15px;}

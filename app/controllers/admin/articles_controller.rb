@@ -63,7 +63,7 @@ class Admin::ArticlesController < Admin::AdminController
     @language=Language.find_by_code(@locale)
     @categories=@language.categories
     @article = Article.find(params[:id])
-  end
+   end
 
   # POST /articles
   # POST /articles.xml

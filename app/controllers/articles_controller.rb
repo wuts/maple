@@ -22,6 +22,7 @@ class ArticlesController < ApplicationController
   def show
 
     @article = Article.find(params[:id])
+    @hot_articles=Article.hotest
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @article }

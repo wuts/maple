@@ -41,6 +41,7 @@ en:
   list_articles: "List Articles"
   add_article: "Add Article"
   edit_article: "Edit Article"
+  hot_articles: "Hot Articles"
 
   select_status: "Please Select Status"
   select_kind: "Please Select Kind"

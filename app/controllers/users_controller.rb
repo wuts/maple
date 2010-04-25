@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   # before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
   before_filter :find_users, :only => [:suspend, :unsuspend, :destroy, :purge]
   
-
   # render new.rhtml
   def new
     @users = Users.new
@@ -20,7 +19,7 @@ class UsersController < ApplicationController
     success = @users && @users.valid?
 
     if success && @users.errors.empty?
-      redirect_back_or_default('/')
+      redirect_back_or_default('/home')
       flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
     else
       flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
@@ -38,10 +37,10 @@ class UsersController < ApplicationController
       redirect_to '/login'
     when params[:activation_code].blank?
       flash[:error] = "The activation code was missing.  Please follow the URL from your email."
-      redirect_back_or_default('/')
+      redirect_back_or_default('/home')
     else 
       flash[:error]  = "We couldn't find a users with that activation code -- check your email? Or maybe you've already activated -- try signing in."
-      redirect_back_or_default('/')
+      redirect_back_or_default('/home')
     end
   end
 
@@ -73,5 +72,4 @@ protected
   def find_users
     @users = Users.find(params[:id])
   end
-
 end
