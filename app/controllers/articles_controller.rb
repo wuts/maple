@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   # GET /articles.xml
 
   # layout "admin",:except=>[:index,:show]
+  uses_yui_editor
 
   def index
     @articles = Article.all
