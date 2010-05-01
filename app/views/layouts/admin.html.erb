@@ -5,6 +5,8 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Articles: <%= controller.action_name %></title>
+  <%= include_tiny_mce_if_needed %>
+
   <%= stylesheet_link_tag 'layout' %>
 
   <%= stylesheet_link_tag 'styles' %>
@@ -18,11 +20,19 @@
    <div id="admin_header" >
     <div id="top">
     <h1><a href="">中加环境与可持续发展中心</a></h1>
-    <p id="userbox">
-        <strong>Hello Demo User</strong>
-        &nbsp;| &nbsp;<a href="">Edit profile</a>     &nbsp;| &nbsp;<a href="">Logout</a> <br>
-        <small><a target="_blank" href="">View website</a></small>
-    </p>
+      <p id="userbox">
+   
+   <% if logged_in? %>  
+     <strong>You are logged in as <%=h current_users.login %></strong>
+   <%= link_to 'Logout', logout_path %>
+    <% else %>  
+  <strong>You are currently not logged in.</strong>
+
+     <%= link_to 'Login', login_path %> or  
+     <%= link_to 'Sign Up', signup_path %>  
+
+     <% end %> 
+      </p>
         <div style="float:right;font-size:1.2em;">
           <% form_tag request.path,:method=>:get do %>
             <%= label_tag t(:change_language) %>

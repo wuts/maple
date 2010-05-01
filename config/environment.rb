@@ -51,8 +51,14 @@ Rails::Initializer.run do |config|
   config.active_record.schema_format = :sql
 
   config.logger = Logger.new(STDERR)
-
+  
+  config.gem "tiny_mce"
+  
+  # get rid of html tags that may cause secrurity problem
+  config.action_view.sanitized_allowed_tags = %w(table tr td span br strong em p sub sup img object param ul li ol)  
+  config.action_view.sanitized_allowed_attributes = %w(font id class style border src width height data type name value)
 end
 
 require "ruby-debug"
 require "will_paginate"
+  

@@ -1,3 +1,4 @@
+<div class="float-left width-three-quaters border-right">
 <%= render :partial=>@article %>
 
 <% if @article.comments %>
@@ -38,3 +39,8 @@
     <%= f.submit t(:create) %>
   </p>
 <% end %>
+</div>
+<div id="sidebar">
+  <h2><%= t :hot_articles %></h2>
+  <%= render :partial=>'articles/article_url',:collection=>@hot_articles,:as=>:article %>
+</div>

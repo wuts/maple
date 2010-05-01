@@ -1,5 +1,6 @@
 <h1>New article</h1>
 
+
  <% content_for :content_top do %>
    <h2><%= t @kind %></h2>
    <br class="clear-both">
@@ -31,13 +32,13 @@
     <%= f.label t :image %><br />
     <%= f.file_field :image %>
   </p>
-  <p>
+  <p  class="hidden">
     <%= f.label t :intro %><br />
-    <%= f.text_field :intro %>
+    <%= f.text_area :intro %>
   </p>
   <p>
     <%= f.label t :body %><br />
-    <%= f.text_area :body %>
+    <%= f.text_area :body,:class=>'mceEditor' %>
   </p>
   <p>
     <%= f.label t :status %><br />

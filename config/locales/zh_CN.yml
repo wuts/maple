@@ -45,7 +45,7 @@
   add_article: "添加新文章"
   list_articles: "文章列表"
   edit_article: "编辑文章"
-
+  hot_articles: "热门文章"
   select_status: "请选择状态"
   select_kind: "请选择类别"
 

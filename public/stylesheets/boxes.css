@@ -37,3 +37,5 @@
 .width-50 { width:50em !important; }
 .width-60 { width:60em !important; }
 .dark-grey-bg { background-color: #555; }
+
+.border-right { border-right:1px solid #CCCCCC; }

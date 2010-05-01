@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   # GET /articles.xml
 
   # layout "admin",:except=>[:index,:show]
+  uses_yui_editor
 
   def index
     @articles = Article.all
@@ -22,6 +23,7 @@ class ArticlesController < ApplicationController
   def show
 
     @article = Article.find(params[:id])
+    @hot_articles=Article.hotest
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @article }
