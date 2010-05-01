@@ -35,7 +35,7 @@
                             <td><%= category.name %></td>
                             <td><%= category.created_at %></td>
 
-                            <td><%= link_to t(:show),admin_category_path(category),:method=>:get %>&nbsp;|&nbsp;<%= link_to t(:edit),edit_admin_category_path(category) %>&nbsp;|&nbsp;<%= link_to t(:delete),new_admin_category_path %>
+                            <td><%= link_to t(:show),admin_category_path(category),:method=>:get %>&nbsp;|&nbsp;<%= link_to t(:edit),edit_admin_category_path(category) %>&nbsp;|&nbsp;<%= link_to t(:delete),admin_category_path(category),:confirm=>t(:sure_delete),:method=>:delete %>
                                                        </td></tr>
                         <% end %>
                                     </tbody>

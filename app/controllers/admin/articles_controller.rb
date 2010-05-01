@@ -74,10 +74,13 @@ class Admin::ArticlesController < Admin::AdminController
     respond_to do |format|
       if @article.save
         flash[:notice] = 'Article was successfully created.'
-        format.html { redirect_to(@article) }
+        format.html { redirect_to(admin_articles_url) }
         format.xml  { render :xml => @article, :status => :created, :location => @article }
       else
         @kind=params[:k] || 'news'
+        @locale=params[:locale] || 'zh_CN'
+        @language=Language.find_by_code(@locale)
+        @categories=@language.categories
         format.html { render :action => "new" }
         format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }
       end
@@ -92,7 +95,7 @@ class Admin::ArticlesController < Admin::AdminController
     respond_to do |format|
       if @article.update_attributes(params[:article])
         flash[:notice] = 'Article was successfully updated.'
-        format.html { redirect_to(@admin_article) }
+        format.html { redirect_to(admin_articles_url) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

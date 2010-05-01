@@ -9,5 +9,32 @@
 </p>
 
 
+
+
+<h1>New category</h1>
+
+ <% content_for :content_top do %>
+   <h2><%= t :categories %></h2>
+   <br class="clear-both">
+   <% end %>
+   <% content_for :left_col do %>
+      <%=render :partial=>'sidemenu' %>
+   <% end %>
+   <% content_for :middle_col do %>
+     <div class="box">
+    <h3 class="yellow"><%= t("show_category") %></h3>
+   <p>
+  <b>Id:</b>
+  <%=h @category.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @category.name %>
+</p>
+
+    </div>
+<% end %>
+
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

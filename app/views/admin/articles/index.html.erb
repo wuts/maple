@@ -38,7 +38,7 @@
                             <td><%= article.category.name %></td>
                             <td><%= article.created_at %></td>
                             <td><%= article.status %></td>
-                            <td><%= link_to t(:show),admin_article_path(article),:method=>:get %>&nbsp;|&nbsp;<%= link_to t(:edit),edit_admin_article_path(article)+"&k="+@kind %>&nbsp;|&nbsp;<%= link_to t(:delete),new_admin_article_path %>
+                            <td><%= link_to t(:show),admin_article_path(article),:method=>:get %>&nbsp;|&nbsp;<%= link_to t(:edit),edit_admin_article_path(article)+"&k="+@kind %>&nbsp;|&nbsp;<%= link_to t(:delete),admin_article_path(article),:confirm=>t(:sure_delete),:method=>:delete %>
                                                        </td></tr>
                         <% end %>
                                     </tbody>
