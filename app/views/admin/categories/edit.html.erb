@@ -10,7 +10,7 @@
      <div class="box">
     <h3 class="yellow"><%=  t("edit_category") %></h3>
     <div class="box-container">
-<% form_for(@category) do |f| %>
+<% form_for(@category,:url=>{:action=>"update"}) do |f| %>
   <%= f.error_messages %>
 
   <p>
