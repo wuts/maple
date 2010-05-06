@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require "net/http"
 require "uri"
 
@@ -53,7 +54,12 @@ Net::HTTP.start(http_server_addr,http_server_port) do |http|
   res=http.request(req)
   doc=Hpricot(res.body)
   puts doc
-
+  doc.search('table tr td').each do |item|  
+    (item/'a').each do |nav|  
+      puts nav.attributes['href']  
+      puts nav.inner_html  
+   end  
+ end  
 end
 
 
