@@ -3,7 +3,11 @@ class ArticlesController < ApplicationController
   # GET /articles.xml
 
   # layout "admin",:except=>[:index,:show]
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 998e8131dcfdf2b14a3b90268bad011b96c9b494
 
   def index
     @articles = Article.all

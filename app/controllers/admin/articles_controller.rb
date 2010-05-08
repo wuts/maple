@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class Admin::ArticlesController < Admin::AdminController
- 
+ @@locale=I18n.locale
  uses_tiny_mce :options => {
                               :theme => 'advanced',
                               :language=>'en',
