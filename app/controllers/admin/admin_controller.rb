@@ -1,8 +1,8 @@
 class Admin::AdminController < ApplicationController
   layout "admin"
   before_filter :http_basic_authenticate_required,:login_required
-  include AuthenticatedSystem  
-  
+  include AuthenticatedSystem
+
  private
  def authenticate
     authenticate_or_request_with_http_basic do |name,password|
@@ -15,7 +15,7 @@ class Admin::AdminController < ApplicationController
       redirect_to '/login'
    end
  end
- 
+
  def http_basic_authenticate_required
    authenticate_or_request_with_http_basic do |username,password|
      username=="admin" && password=="8888"

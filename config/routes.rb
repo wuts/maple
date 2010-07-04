@@ -1,13 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.resources :news
-
   map.resources :bulletins
-
+  map.resources :pages
   map.connect 'page/:slug',:controller=>"articles",:action=>"show_by_slug",:requirements=>{ :slug=>/[a-z]+/ }
 
   map.resources :comments
-
+  map.resources :blogs
   map.resources :photos
 
   map.resources :galleries
@@ -27,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :photos
     admin.resources :pages
     admin.resources :categories
+    admin.resources :blogs
 
   end
 

@@ -7,11 +7,11 @@ require "hpricot"
 require "socket"
 require "udpclient"
 
-http_server_addr="localhost"
-http_server_port=3000
+http_server_addr="gcwh.ipva.cn"
+http_server_port=80
 username="admin"
 password="8888"
-data_url_path="/search"
+data_url_path="/Login.aspx"
 
 start_date="2010/05/01"
 start_hour="0"
@@ -35,31 +35,31 @@ while true
 
 # http basic authenticate
 Net::HTTP.start(http_server_addr,http_server_port) do |http|
- 
+
   # build search params
   start_time=start_date+start_hour+start_minute+start_second
   end_time=start_date+end_hour+end_minute+end_second
-  search_params="Count "+channel.to_s+" "+start_time+" " +end_time;		
+  search_params="Count "+channel.to_s+" "+start_time+" " +end_time;
   puts search_params
-  
+
   # http basic auth
   req=Net::HTTP::Get.new(data_url_path)
   req.basic_auth 'admin','8888'
   res=http.request(req)
   #puts res.body if res
-  
+
   # post search params
   req=Net::HTTP::Post.new(data_url_path)
   req.set_form_data({"cmd" =>search_params})
   res=http.request(req)
   doc=Hpricot(res.body)
   puts doc
-  doc.search('table tr td').each do |item|  
-    (item/'a').each do |nav|  
-      puts nav.attributes['href']  
-      puts nav.inner_html  
-   end  
- end  
+  doc.search('table tr td').each do |item|
+    (item/'a').each do |nav|
+      puts nav.attributes['href']
+      puts nav.inner_html
+   end
+ end
 end
 
 

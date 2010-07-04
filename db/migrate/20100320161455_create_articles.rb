@@ -1,4 +1,4 @@
-cclass CreateArticles < ActiveRecord::Migration
+class CreateArticles < ActiveRecord::Migration
   def self.up
     create_table :articles do |t|
       t.integer :id
