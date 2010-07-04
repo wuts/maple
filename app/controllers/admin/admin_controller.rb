@@ -1,6 +1,6 @@
 class Admin::AdminController < ApplicationController
   layout "admin"
-  before_filter :http_basic_authenticate_required,:login_required
+  before_filter :login_required
   include AuthenticatedSystem
 
  private
