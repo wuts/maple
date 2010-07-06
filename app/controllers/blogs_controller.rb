@@ -1,0 +1,4 @@
+class BlogsController < ArticlesController
+
+
+end

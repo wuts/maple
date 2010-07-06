@@ -1,11 +1,36 @@
 #!/bin/bash
-
-
-git add	config/tiny_mce.yml
-git add	config/yui_editor.yml
-git add	public/javascripts/tiny_mce/
-git add	public/system/images/18/large/rails.png
-git add	public/system/images/18/medium/
-git add	public/system/images/18/original/rails.png
-git add	public/system/images/18/thumb/rails.png
-git add	public/system/images/19/
+git add     app/controllers/admin/blogs_controller.rb
+git add     app/controllers/blogs_controller.rb
+git add     app/helpers/admin/blogs_helper.rb
+git add     app/helpers/blogs_helper.rb
+git add     app/models/blog.rb
+git add     app/views/admin/blogs/
+git add     app/views/blog/
+git add     app/views/blogs/
+git add     db/migrate/20100404082405_add_type_to_articles.rb
+git add     public/images/Detective_cut_out_clip.gif
+git add     public/images/intercultural.png
+git add     public/images/maple.jpg
+git add     public/images/stock-vector-vector-target-35063818.jpg
+git add     public/system/images/18/large/maple.jpg
+git add     public/system/images/18/medium/maple.jpg
+git add     public/system/images/18/original/maple.jpg
+git add     public/system/images/18/thumb/maple.jpg
+git add     public/system/images/19/large/stock-vector-vector-target-35063818.jpg
+git add     public/system/images/19/medium/stock-vector-vector-target-35063818.jpg
+git add     public/system/images/19/original/stock-vector-vector-target-35063818.jpg
+git add     public/system/images/19/thumb/stock-vector-vector-target-35063818.jpg
+git add     public/system/images/20/large/intercultural.png
+git add     public/system/images/20/medium/intercultural.png
+git add     public/system/images/20/original/intercultural.png
+git add     public/system/images/20/thumb/intercultural.png
+git add     public/system/images/21/
+git add     public/system/images/22/
+git add     public/system/images/23/
+git add     public/system/images/24/
+git add     public/system/images/25/
+git add     public/system/images/26/
+git add     test/functional/admin/blogs_controller_test.rb
+git add     test/functional/blogs_controller_test.rb
+git add     test/unit/helpers/admin/blogs_helper_test.rb
+git add     test/unit/helpers/blogs_helper_test.rb
